@@ -7,6 +7,7 @@ export const GlobalStyle = createGlobalStyle`
     height: 100%;
     width: 100%;
     line-height: 1.5;
+    
   }
 
   body {
@@ -20,8 +21,9 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   p,
-  label {
+  label,span {
     line-height: 1.5em;
+    font-size: 16px;
   }
 
   input, select, button {

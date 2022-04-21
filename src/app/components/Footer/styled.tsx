@@ -4,7 +4,7 @@ const Styled = {
   Footer: styled.footer`
     .footer {
       height: 440px;
-      background-color: $neutral-800;
+      background-color: ${({ theme }) => theme.neutral_800};
       // margin: 0 auto;
       padding: 75px 0;
       padding-left: 20px;
@@ -13,10 +13,7 @@ const Styled = {
         position: relative;
         width: 82%;
         height: 100%;
-        p {
-          color: rgba($neutral-white, 0.9);
-          // padding-right: 120px;
-        }
+
         .description {
           margin-top: 40px;
         }
@@ -27,7 +24,7 @@ const Styled = {
       }
       h2 {
         font-size: 18px;
-        color: $neutral-200;
+        color: ${({ theme }) => theme.neutral_200};
         text-transform: uppercase;
         font-weight: 700;
       }

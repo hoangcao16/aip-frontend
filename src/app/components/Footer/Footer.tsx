@@ -11,8 +11,8 @@ import Styled from './styled';
 
 function Footer() {
   return (
-    <Styled.Footer className="footer">
-      <Row justify="center" style={{ height: '100%' }}>
+    <Styled.Footer>
+      <Row justify="center" className="footer" style={{ height: '100%' }}>
         <Col span={9}>
           <div className="logo">
             <img

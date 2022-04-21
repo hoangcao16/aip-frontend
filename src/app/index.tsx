@@ -18,6 +18,7 @@ import { useTranslation } from 'react-i18next';
 import { useThemeContext } from 'app/components/common/themeContext';
 import { darkTheme, lightTheme } from 'theme/theme';
 import 'antd/dist/antd.min.css';
+import Documentation from './pages/Documentation';
 
 export function App() {
   const { theme } = useThemeContext();
@@ -31,6 +32,7 @@ export function App() {
         </Helmet>
         <Routes>
           <Route path={process.env.PUBLIC_URL + '/'} element={<HomePage />} />
+          <Route path={process.env.PUBLIC_URL + '/documentation'} element={<Documentation />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <GlobalStyle />

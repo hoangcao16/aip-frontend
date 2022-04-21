@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Col, Menu, Row, Popover, Button } from 'antd';
+import { Col, Menu, Row, Button } from 'antd';
 import { Link } from 'react-router-dom';
 // import { getToken } from '../../helpers/token';
 // import { RootState } from 'src/redux/reducers';
@@ -28,7 +28,7 @@ interface IProps extends ParentProps {}
 
 function Header(props: IProps) {
   // console.log('login', props.isLogin);
-  const [visiblePopover, setVisiblePopover] = useState<boolean>(false);
+  // const [visiblePopover, setVisiblePopover] = useState<boolean>(false);
   const [current, setCurrent] = useState(() => {
     return localStorage.getItem('current')
       ? `${localStorage.getItem('current')}`
@@ -62,9 +62,9 @@ function Header(props: IProps) {
   //   props.showChangePasswordForm();
   // };
 
-  const handleVisibleChange = (visible: any) => {
-    setVisiblePopover(visible);
-  };
+  // const handleVisibleChange = (visible: any) => {
+  //   setVisiblePopover(visible);
+  // };
 
   const handleClick = (e: any) => {
     localStorage.setItem('current', e.key);
@@ -103,13 +103,13 @@ function Header(props: IProps) {
             <Menu.Item key="documentation">
               <Link to={'/documentation'}>Documentation</Link>
             </Menu.Item>
-            <div>
+            <Menu.Item>
               {props.isLogin === false && (
                 <Button size="large">
                   <Link to={'/login'}>Console</Link>
                 </Button>
               )}
-            </div>
+            </Menu.Item>
           </Menu>
         </Col>
       </Row>

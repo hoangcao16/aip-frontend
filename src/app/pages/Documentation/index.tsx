@@ -2,8 +2,8 @@ import React from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 import Footer from 'app/components/Footer/Footer';
 import Header from 'app/components/Header/Header';
-import { RootState } from 'types/RootState';
-import DocumentationPage from '../components/DocumentationPage';
+// import { RootState } from 'types/RootState';
+import DocumentationPage from './components/DocumentationPage';
 
 const Documentation = () => {
   return (

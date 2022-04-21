@@ -1,7 +1,7 @@
 import React from 'react';
 import CustomTabs from 'app/components/Tabs/CustomTabs';
 import IntegrationGuide from '../IntegrationGuide';
-import './style.scss';
+// import './style.scss';
 
 const tabDocumentation = [
   { tab: 'API References', component: 'API References' },
@@ -13,7 +13,10 @@ const tabDocumentation = [
 
 const DocumentationPage = () => {
   return (
-    <div className="documentation">
+    <div
+      className="documentation"
+      style={{ marginTop: '0px', minHeight: '500px', marginBottom: '45px' }}
+    >
       <CustomTabs dataTabs={tabDocumentation} />
     </div>
   );

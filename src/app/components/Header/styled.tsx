@@ -28,50 +28,59 @@ const Styled = {
         border-bottom: 0;
         height: 100%;
         justify-content: end;
-        margin-right: 25px;
         .ant-menu-item {
           vertical-align: baseline;
           border-bottom: 0;
           a {
-            width: 90px;
-            color: $neutral-600;
+            font-size: 16px;
+            color: ${({ theme }) => theme.neutral_600};
+            width: 100px;
+          }
+          &:after {
+            border-bottom: 0;
           }
         }
         .ant-menu-item-selected {
           a {
-            color: $primary-700 !important;
+            color: ${({ theme }) => theme.primary_700} !important;
             font-weight: 600;
           }
           &:hover {
             border: 0;
           }
+          &:after {
+            border: 0;
+          }
         }
         .ant-menu-item-active {
-          color: $primary-700 !important;
+          color: ${({ theme }) => theme.primary_700} !important;
           border-bottom: 0;
           &:hover {
             border-bottom: 0;
             font-weight: 600;
           }
+          &:after {
+            border-bottom: 0;
+          }
           a {
-            color: $primary-700 !important;
+            color: ${({ theme }) => theme.primary_700};
           }
         }
         .ant-btn {
-          background-color: $primary-600;
-          margin-left: 40px;
+          background-color: ${({ theme }) => theme.primary_600};
           width: 110px;
           height: 48px;
           border: 0;
           a {
-            color: $neutral-white;
+            color: ${({ theme }) => theme.neutral_white};
             font-size: 16px;
             &:hover {
-              color: $neutral-white;
+              color: ${({ theme }) => theme.neutral_white};
             }
           }
           &:hover {
-            background-color: $primary-700;
+            background-color: ${({ theme }) => theme.primary_700};
+            color
             border: 0;
           }
         }
