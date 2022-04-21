@@ -1,0 +1,18 @@
+@import "../../../../assets/scss/aip.scss";
+.chart-table {
+    .ant-table-column-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: $neutral-900;
+    }
+    .total .ant-table-column-title {
+        color: #0061CC;
+    }
+    .successApi .ant-table-column-title {
+        color: #21874A;
+    }
+    .clientErrors .ant-table-column-title,
+    .systemErrors .ant-table-column-title {
+        color: #C0292C;
+    }
+}

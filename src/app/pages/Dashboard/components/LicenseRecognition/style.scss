@@ -1,0 +1,21 @@
+@import "../../../../assets/scss/aip.scss";
+.license-recognition {
+    .remaining {
+        display: flex;
+        justify-content: space-between;
+        &>p {
+            text-align: right !important;
+            color: $neutral-900;
+            padding: 8px;
+            span {
+                color: $secondary-600;
+                font-weight: 600;
+            }
+        }
+        .ant-radio-wrapper.ant-radio-wrapper-checked {
+            span {
+                color: $secondary-600;
+            }
+        }
+    }
+}

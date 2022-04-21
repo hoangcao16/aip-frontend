@@ -1,0 +1,35 @@
+@import "../../../../assets/scss/aip.scss";
+.data {
+    h2,
+    h3 {
+        font-size: 28px;
+        line-height: 40px;
+        font-weight: 600;
+        color: $neutral-900;
+    }
+    .ant-card-body {
+        padding: 16px;
+    }
+    .card-info {
+        display: flex;
+        margin-top: 16px;
+    }
+    span {
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+    }
+    p {
+        color: $neutral-900;
+        font-size: 14px;
+        line-height: 30px;
+        margin-left: 12px;
+    }
+    .icon {
+        transform: translate(50%, 20%);
+    }
+    .ant-card-bordered {
+        border-color: $neutral-300;
+        border-radius: 4px;
+    }
+}
