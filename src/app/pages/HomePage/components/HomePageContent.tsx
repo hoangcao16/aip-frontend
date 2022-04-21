@@ -1,11 +1,12 @@
 import React from 'react';
-import { Button, Col, Icon, Row } from 'antd';
-import './style.scss';
+import { Button, Col, Row } from 'antd';
+// import './style.scss';
 import IMAGE_ACCURACY from '../../../assets/images/imagesGuide/image-accuracy.png';
 import IMAGE_OPTION from '../../../assets/images/imagesGuide/image-option.png';
 import IMAGE_SAMPLE from '../../../assets/images/imagesGuide/image-sample.png';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
+import { CheckOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
 
 const HomePageContent = (props: any) => {
   const listOption = [
@@ -35,7 +36,7 @@ const HomePageContent = (props: any) => {
   };
   return (
     <div className="homepage">
-      <Row type="flex" justify="center">
+      <Row justify="center">
         <Col span={19}>
           <div className="info">
             <div className="line"></div>
@@ -52,7 +53,7 @@ const HomePageContent = (props: any) => {
         </Col>
       </Row>
       {/* accuracy */}
-      <Row type="flex" justify="center">
+      <Row justify="center">
         <Col span={19}>
           <div className="accuracy">
             <div>
@@ -69,7 +70,7 @@ const HomePageContent = (props: any) => {
       </Row>
       <div className="line-full"></div>
       {/* option */}
-      <Row type="flex" justify="center">
+      <Row justify="center">
         <Col span={19}>
           <div className="option">
             <div className="line"></div>
@@ -96,7 +97,7 @@ const HomePageContent = (props: any) => {
                     {listOption.map(item => (
                       <div className="option__item">
                         <span className="option__type">
-                          <Icon type="check" className="icon" />
+                          <CheckOutlined className="icon" />
                         </span>
                         <p>{item}</p>
                       </div>
@@ -109,7 +110,7 @@ const HomePageContent = (props: any) => {
         </Col>
       </Row>
       {/* sample */}
-      <Row type="flex" justify="center">
+      <Row justify="center">
         <Col span={19}>
           <div className="sample">
             <div className="line"></div>
@@ -117,7 +118,7 @@ const HomePageContent = (props: any) => {
               <h3 className="sample__title">
                 Let’s get started with our sample!
               </h3>
-              <Button size="large" type="danger" className="sample__btn">
+              <Button size="large" className="sample__btn">
                 Try with my image
               </Button>
             </div>
@@ -130,8 +131,7 @@ const HomePageContent = (props: any) => {
                     width="100%"
                     renderArrowPrev={(onClickHandler, hasNext, label) =>
                       hasNext && (
-                        <Icon
-                          type="left"
+                        <LeftOutlined
                           className="arrow-left"
                           onClick={onClickHandler}
                           title={label}
@@ -140,8 +140,7 @@ const HomePageContent = (props: any) => {
                     }
                     renderArrowNext={(onClickHandler, hasNext, label) =>
                       hasNext && (
-                        <Icon
-                          type="right"
+                        <RightOutlined
                           className="arrow-right"
                           onClick={onClickHandler}
                           title={label}

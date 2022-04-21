@@ -1,5 +1,8 @@
+import Footer from 'app/components/Footer/Footer';
+import Header from 'app/components/Header/Header';
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
+import HomePageContent from './components/HomePageContent';
 
 export function HomePage() {
   return (
@@ -11,7 +14,9 @@ export function HomePage() {
           content="A React Boilerplate application homepage"
         />
       </Helmet>
-      <div>home</div>
+      <Header isLogin={false} />
+      <HomePageContent />
+      <Footer />
     </>
   );
 }
