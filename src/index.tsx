@@ -23,7 +23,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { configureAppStore } from 'store/configureStore';
 
 import { ThemeProvider } from 'styles/theme/ThemeProvider';
-
+import { ThemeContextProvider } from 'app/components/common/themeContext';
 import reportWebVitals from 'reportWebVitals';
 
 // Initialize languages
@@ -45,9 +45,11 @@ ReactDOM.render(
   <Provider store={store}>
     <ThemeProvider>
       <HelmetProvider>
-        <React.StrictMode>
-          <App />
-        </React.StrictMode>
+        <ThemeContextProvider>
+          <React.StrictMode>
+            <App />
+          </React.StrictMode>
+        </ThemeContextProvider>
       </HelmetProvider>
     </ThemeProvider>
   </Provider>,

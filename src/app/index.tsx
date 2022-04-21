@@ -11,25 +11,30 @@ import { Helmet } from 'react-helmet-async';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
 import { GlobalStyle } from '../styles/global-styles';
-
+import { ThemeProvider } from 'styled-components';
 import { HomePage } from './pages/HomePage/Loadable';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
+import { useThemeContext } from 'app/components/common/themeContext';
+import { darkTheme, lightTheme } from 'theme/theme';
 import 'antd/dist/antd.min.css';
 
 export function App() {
+  const { theme } = useThemeContext();
   const { i18n } = useTranslation();
+  const themeMode = theme === 'light' ? lightTheme : darkTheme;
   return (
     <BrowserRouter>
-      <Helmet htmlAttributes={{ lang: i18n.language }}>
-        <meta name="description" content="A React Boilerplate application" />
-      </Helmet>
-
-      <Routes>
-        <Route path={process.env.PUBLIC_URL + '/'} element={<HomePage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-      <GlobalStyle />
+      <ThemeProvider theme={themeMode}>
+        <Helmet htmlAttributes={{ lang: i18n.language }}>
+          <meta name="description" content="A React Boilerplate application" />
+        </Helmet>
+        <Routes>
+          <Route path={process.env.PUBLIC_URL + '/'} element={<HomePage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+        <GlobalStyle />
+      </ThemeProvider>
     </BrowserRouter>
   );
 }

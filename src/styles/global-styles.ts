@@ -34,7 +34,7 @@ export const GlobalStyle = createGlobalStyle`
     height: 1.5rem;
   }
   .carousel.carousel-slider {
-    background-color: $neutral-200;
+    background-color: ${({ theme }) => theme.neutral_200};
 }
 
 .carousel .control-dots {
@@ -71,7 +71,7 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 .carousel .thumb {
-    background-color: $neutral-200;
+    background-color: ${({ theme }) => theme.neutral_200};
     padding: 10px 30px !important;
 }
 `;
