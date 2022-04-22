@@ -38,6 +38,12 @@ export const authService = {
       data,
     });
   },
+  active(id) {
+    return apiClient.request({
+      method: 'POST',
+      url: `/aipaccountsvc/active/${id}`,
+    });
+  },
   setAccessToken(token: string) {
     return localStorage.setItem('access_token', token);
   },

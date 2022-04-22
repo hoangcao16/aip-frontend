@@ -13,7 +13,13 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { GlobalStyle } from '../styles/global-styles';
 import { ThemeProvider } from 'styled-components';
 import { HomePage } from './pages/HomePage/Loadable';
-import { LoginPage, RegisterPage } from './pages/Auth/Loadable';
+import {
+  LoginPage,
+  RegisterPage,
+  ForgetPasswordPage,
+  UpdatePasswordPage,
+  ActiveAccountPage,
+} from './pages/Auth/Loadable';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
 import { useThemeContext } from 'app/components/common/themeContext';
@@ -36,6 +42,9 @@ export function App() {
           <Route path="/documentation" element={<Documentation />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/forget" element={<ForgetPasswordPage />} />
+          <Route path="/change-pass/:id" element={<UpdatePasswordPage />} />
+          <Route path="/active/:userActiveId" element={<ActiveAccountPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <GlobalStyle />

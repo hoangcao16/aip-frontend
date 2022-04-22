@@ -22,11 +22,13 @@ const RegisterContainer = () => {
   } = useForm();
   // submit form
   const onSubmitRegister = data => {
-    console.log(data);
-    dispatch(actions.registerRequest(data));
+    const sendData = {
+      ...data,
+      recaptcha_response: recaptcha_response,
+    };
+    dispatch(actions.registerRequest(sendData));
   };
   const handleConfirmBlur = (e: any) => {
-    const { value } = e.target;
     // setConfirmDirty(confirmDirty || !!value);
   };
   return (
@@ -44,7 +46,6 @@ const RegisterContainer = () => {
           <Col span={12} className="login-form">
             <div className="form-content" style={{ marginTop: '7%' }}>
               <h3 className="title">Register</h3>
-              {/* Check form */}
               <form onSubmit={handleSubmit(onSubmitRegister)}>
                 <FormItem>
                   <Controller
@@ -63,7 +64,11 @@ const RegisterContainer = () => {
                         </div>
                         <Input
                           {...field}
-                          className="formitem-input"
+                          className={
+                            errors?.username
+                              ? 'formitem-input error'
+                              : 'formitem-input'
+                          }
                           autoFocus={true}
                           allowClear
                           id="username"
@@ -90,7 +95,11 @@ const RegisterContainer = () => {
                         </div>
                         <Input
                           {...field}
-                          className="formitem-input"
+                          className={
+                            errors?.fullname
+                              ? 'formitem-input error'
+                              : 'formitem-input'
+                          }
                           autoFocus={true}
                           allowClear
                           id="fullname"
@@ -117,7 +126,11 @@ const RegisterContainer = () => {
                         </div>
                         <Input
                           {...field}
-                          className="formitem-input"
+                          className={
+                            errors?.email
+                              ? 'formitem-input error'
+                              : 'formitem-input'
+                          }
                           autoFocus={true}
                           allowClear
                           id="email"
@@ -148,7 +161,11 @@ const RegisterContainer = () => {
                         </div>
                         <Input.Password
                           {...field}
-                          className="formitem-input"
+                          className={
+                            errors?.password
+                              ? 'formitem-input error'
+                              : 'formitem-input'
+                          }
                           type="password"
                           id="password"
                           placeholder="Your password"

@@ -1,5 +1,5 @@
 import { all, call, put, takeEvery } from 'redux-saga/effects';
-import { authregisterActions as actions } from '.';
+import { activeaccountActions as actions } from '.';
 import { authService } from 'services/authService';
 import {
   NotificationSuccess,
@@ -7,24 +7,24 @@ import {
 } from 'app/components/Notification/Notification';
 function* handleRegister(action) {
   try {
-    const response = yield call(authService.register, action.payload);
+    const response = yield call(authService.active, action.payload);
     console.log(response);
     if (response.rc.code === 0) {
       NotificationSuccess('Thành công', response.rc.desc);
-      yield put(actions.registerSuccess(response));
+      yield put(actions.activeAccountSuccess(response));
     } else if (response.rc.code !== 0) {
       NotificationError('Có lỗi', response.rc.desc);
     }
   } catch (err: any) {
-    yield put(actions.registerFail(err.response));
+    yield put(actions.activeAccountFail(err.response));
     console.log(err);
   }
 }
 
 function* watchRegister() {
-  yield takeEvery(actions.registerRequest, handleRegister);
+  yield takeEvery(actions.activeAccountRequest, handleRegister);
 }
 
-export function* authregisterSaga() {
+export function* activeaccountSaga() {
   yield all([watchRegister()]);
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import RegisterContainer from 'app/container/RegisterContainer';
 import Loading from 'app/components/Loading';
 import { useSelector } from 'react-redux';
