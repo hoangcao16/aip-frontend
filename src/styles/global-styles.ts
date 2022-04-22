@@ -6,8 +6,6 @@ export const GlobalStyle = createGlobalStyle`
   body {
     height: 100%;
     width: 100%;
-    line-height: 1.5;
-    
   }
 
   body {
@@ -22,7 +20,7 @@ export const GlobalStyle = createGlobalStyle`
   
   p,
   label,span {
-    line-height: 1.5em;
+    line-height: 24px;
     font-size: 16px;
   }
 
@@ -78,5 +76,28 @@ export const GlobalStyle = createGlobalStyle`
 }
 .ant-btn {
   border-radius: 4px !important;
+}
+
+.ant-message {
+  top: 100px !important;
+}
+
+.ant-message-notice {
+  text-align: end !important;
+  .ant-message-notice-content {
+    background-color: ${({ theme }) => theme.secondary_100};
+    border: 1px solid ${({ theme }) => theme.secondary_600};
+    padding-right: 60px;
+    margin-left: auto;
+
+    .anticon svg {
+      margin-top: -7px;
+    }
+  }
+  span {
+    color: ${({ theme }) => theme.neutral_900};
+    font-size: 14px;
+    line-height: 20px;
+  }
 }
 `;

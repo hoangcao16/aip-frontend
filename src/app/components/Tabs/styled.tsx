@@ -10,7 +10,7 @@ const Styled = {
         width: 20%;
       }
       .ant-tabs > .ant-tabs-nav {
-        width: 20% !important;
+        width: 20%;
         border-right: 0;
         padding-top: 30px;
       }
@@ -44,16 +44,22 @@ const Styled = {
           font-weight: 500 !important;
         }
       }
-      .ant-tabs-tab-btn:active,
-      .ant-tabs-tab-btn:focus {
-        color: ${({ theme }) => theme.primary_600} !important;
+      .ant-tabs-tab-btn {
+        .anticon svg {
+          margin-top: -7px;
+        }
       }
+
+      // .ant-tabs-tab-btn:active,
+      // .ant-tabs-tab-btn:focus {
+      //   color: ${({ theme }) => theme.primary_600};
+      // }
       .ant-tabs-content-holder {
-        border-left: 1px solid ${({ theme }) => theme.neutral_300};
+        // border-left: 1px solid ${({ theme }) => theme.neutral_300};
         padding-left: 60px;
         padding-top: 0px;
         padding-right: 60px;
-        min-height: 600px;
+        min-height: calc(100vh - 80px);
 
         .ant-tabs-tabpane {
           padding: 0;

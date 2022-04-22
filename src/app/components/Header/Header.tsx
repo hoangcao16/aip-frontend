@@ -102,7 +102,7 @@ function Header(props: IProps) {
               <Link to={'/'}>About us</Link>
             </Menu.Item>
             <Menu.Item key="contact">
-              <Link to={'/'}>Contact us</Link>
+              <Link to={'/dashboard'}>Contact us</Link>
             </Menu.Item>
             <Menu.Item key="documentation">
               <Link to={'/documentation'}>Documentation</Link>

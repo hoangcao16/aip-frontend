@@ -1,7 +1,6 @@
 import React from 'react';
 import CustomTabs from 'app/components/Tabs/CustomTabs';
 import IntegrationGuide from '../IntegrationGuide';
-// import './style.scss';
 
 const tabDocumentation = [
   { tab: 'API References', component: 'API References' },
