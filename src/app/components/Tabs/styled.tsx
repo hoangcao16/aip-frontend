@@ -14,21 +14,24 @@ const Styled = {
         border-right: 0;
         padding-top: 30px;
       }
-      .ant-tabs .ant-tabs-nav .ant-tabs-tab {
+      .ant-tabs .ant-tabs-tab-btn {
         text-align: left;
-        color: $neutral-600;
-        padding: 16px 32px;
-        margin-bottom: 0;
+        color: ${({ theme }) => theme.neutral_600};
+        padding: 8px 10px;
+        margin: 0;
+      }
+      .ant-tabs-left > .ant-tabs-nav .ant-tabs-tab + .ant-tabs-tab {
+        margin: 0;
       }
       .ant-tabs .ant-tabs-nav .ant-tabs-ink-bar {
         left: 0;
         width: 4px;
-        background-color: $primary-600;
+        background-color: ${({ theme }) => theme.primary_600};
         &::after {
           content: '';
           position: absolute;
           border-top: 5px solid transparent;
-          border-left: 6px solid $primary-600;
+          border-left: 6px solid ${({ theme }) => theme.primary_600};
           border-bottom: 5px solid transparent;
           right: -6px;
           transform: translateY(-50%);
@@ -36,15 +39,25 @@ const Styled = {
         }
       }
       .ant-tabs-nav .ant-tabs-tab-active {
-        color: $primary-600 !important;
-        font-weight: 500 !important;
+        span {
+          color: ${({ theme }) => theme.primary_600} !important;
+          font-weight: 500 !important;
+        }
       }
-      .ant-tabs .ant-tabs-left-content {
-        border-left: 1px solid $neutral-300;
+      .ant-tabs-tab-btn:active,
+      .ant-tabs-tab-btn:focus {
+        color: ${({ theme }) => theme.primary_600} !important;
+      }
+      .ant-tabs-content-holder {
+        border-left: 1px solid ${({ theme }) => theme.neutral_300};
         padding-left: 60px;
-        padding-top: 30px;
+        padding-top: 0px;
         padding-right: 60px;
-        min-height: 500px;
+        min-height: 600px;
+
+        .ant-tabs-tabpane {
+          padding: 0;
+        }
       }
     }
   `,

@@ -67,8 +67,12 @@ function Header(props: IProps) {
   // };
 
   const handleClick = (e: any) => {
-    localStorage.setItem('current', e.key);
-    setCurrent(e.key);
+    if (e.key !== 'login') {
+      localStorage.setItem('current', e.key);
+      setCurrent(e.key);
+    } else {
+      return;
+    }
   };
 
   return (
@@ -103,7 +107,7 @@ function Header(props: IProps) {
             <Menu.Item key="documentation">
               <Link to={'/documentation'}>Documentation</Link>
             </Menu.Item>
-            <Menu.Item>
+            <Menu.Item className="console" key="login">
               {props.isLogin === false && (
                 <Button size="large">
                   <Link to={'/login'}>Console</Link>

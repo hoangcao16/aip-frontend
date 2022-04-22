@@ -76,4 +76,7 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.neutral_200};
     padding: 10px 30px !important;
 }
+.ant-btn {
+  border-radius: 4px !important;
+}
 `;
