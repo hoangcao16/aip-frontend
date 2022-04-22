@@ -3,28 +3,39 @@ import jwtDecode, { JwtPayload } from 'jwt-decode';
 import moment from 'moment';
 
 export const authService = {
-  register(email, password, referralId, allowReceiveEmail, allowShareData) {
+  login(data) {
     return apiClient.request({
       method: 'POST',
-      url: '/account-svc/users/auth/register',
-      data: {
-        email,
-        password,
-        referralId,
-        allowReceiveEmail,
-        allowShareData,
-      },
+      url: '/aipaccountsvc/users/auth/login',
+      data,
     });
   },
-  login(email, password, recaptcha_response) {
+  changePassword(data) {
     return apiClient.request({
       method: 'POST',
-      url: '/account-svc/users/auth/login',
-      data: {
-        email,
-        password,
-        recaptcha_response,
-      },
+      url: '/aipaccountsvc/users/change-password',
+      data,
+    });
+  },
+  register(data) {
+    return apiClient.request({
+      method: 'POST',
+      url: '/aipaccountsvc/users/register',
+      data,
+    });
+  },
+  forget(data) {
+    return apiClient.request({
+      method: 'POST',
+      url: '/aipaccountsvc/users/auth/forget',
+      data,
+    });
+  },
+  updatePassword(data) {
+    return apiClient.request({
+      method: 'POST',
+      url: `/aipaccountsvc/users/resetPassword/${data?.id}`,
+      data,
     });
   },
   setAccessToken(token: string) {
