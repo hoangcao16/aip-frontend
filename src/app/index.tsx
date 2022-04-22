@@ -26,6 +26,7 @@ import { useThemeContext } from 'app/components/common/themeContext';
 import { darkTheme, lightTheme } from 'theme/theme';
 import 'antd/dist/antd.min.css';
 import Documentation from './pages/Documentation';
+import Dashboard from './pages/Dashboard';
 
 export function App() {
   const { theme } = useThemeContext();
@@ -40,6 +41,7 @@ export function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/documentation" element={<Documentation />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/forget" element={<ForgetPasswordPage />} />

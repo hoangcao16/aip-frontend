@@ -7,8 +7,8 @@ const Styled = {
       .line {
         width: 120px;
         height: 8px;
-        // background-color: $secondary-800;
         background-color: ${({ theme }) => theme.secondary_800};
+        margin-top: 80px;
       }
       h3 {
         color: ${({ theme }) => theme.neutral_900};

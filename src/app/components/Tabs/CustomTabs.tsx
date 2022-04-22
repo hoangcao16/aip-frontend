@@ -1,4 +1,3 @@
-import { AppleOutlined } from '@ant-design/icons';
 import { Tabs } from 'antd';
 import React from 'react';
 import Styled from './styled';
@@ -13,7 +12,15 @@ function CustomTabs(props: any) {
       <div className="custom-tabs">
         <Tabs tabPosition={'left'} defaultActiveKey="Integration Guide">
           {dataTabs.map((item: any) => (
-            <TabPane tab={<span>{item.tab}</span>} key={item.tab}>
+            <TabPane
+              tab={
+                <span>
+                  {item.icon}
+                  {item.tab}
+                </span>
+              }
+              key={item.tab}
+            >
               {item.component}
             </TabPane>
           ))}

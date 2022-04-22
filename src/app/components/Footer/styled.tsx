@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Styled = {
   Footer: styled.footer`
     .footer {
-      height: 440px;
+      height: 400px;
       background-color: ${({ theme }) => theme.neutral_800};
       // margin: 0 auto;
       padding: 75px 0;
