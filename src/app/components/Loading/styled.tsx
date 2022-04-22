@@ -9,7 +9,7 @@ export const CoverPage = styled.div`
   background: rgba(0, 0, 0, 0.6);
   justify-content: center;
   align-items: center;
-  z-index: 9999
+  z-index: 9999;
 `;
 
 export const CoverModal = styled.div`
@@ -21,7 +21,7 @@ export const CoverModal = styled.div`
   background: rgba(0, 0, 0, 0.2);
   justify-content: center;
   align-items: center;
-  z-index: 9999
+  z-index: 9999;
 `;
 
 export const Row = styled.div`

@@ -155,4 +155,10 @@ export const FormItem = styled.div`
     margin: 12px 0px;
     color: ${({ theme }) => theme.neutral_700};
   }
+  .formitem-input {
+    border-radius: 4px;
+  }
+  .error {
+    border-color: ${({ theme }) => theme.primary_600};
+  }
 `;

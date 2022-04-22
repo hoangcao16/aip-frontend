@@ -5,6 +5,7 @@ import { authloginSaga } from './saga';
 import { AuthloginState } from './types';
 
 export const initialState: AuthloginState = {
+  isLoading: false,
   responseLogin: {},
 };
 
@@ -12,12 +13,16 @@ const slice = createSlice({
   name: 'authlogin',
   initialState,
   reducers: {
-    loginRequest(state, action: PayloadAction<any>) {},
+    loginRequest(state, action: PayloadAction<any>) {
+      state.isLoading = true;
+    },
     loginSuccess(state, action) {
       state.responseLogin = action.payload;
+      state.isLoading = false;
     },
     loginFail(state, action) {
       state.responseLogin = action.payload;
+      state.isLoading = false;
     },
   },
 });

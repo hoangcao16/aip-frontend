@@ -1,35 +1,35 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from 'utils/@reduxjs/toolkit';
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
-import { authregisterSaga } from './saga';
-import { AuthregisterState } from './types';
+import { forgetpasswordSaga } from './saga';
+import { ForgetpasswordState } from './types';
 
-export const initialState: AuthregisterState = {
+export const initialState: ForgetpasswordState = {
   isLoading: false,
   data: {},
 };
 
 const slice = createSlice({
-  name: 'authregister',
+  name: 'forgetpassword',
   initialState,
   reducers: {
-    registerRequest(state, action: PayloadAction<any>) {
+    forgetPasswordRequest(state, action: PayloadAction<any>) {
       state.isLoading = true;
     },
-    registerSuccess(state, action) {
+    forgetPasswordSuccess(state, action) {
       state.data = action.payload;
       state.isLoading = false;
     },
-    registerFail(state, action) {
+    forgetPasswordFail(state, action) {
       state.isLoading = false;
     },
   },
 });
 
-export const { actions: authregisterActions } = slice;
+export const { actions: forgetpasswordActions } = slice;
 
-export const useAuthregisterSlice = () => {
+export const useForgetpasswordSlice = () => {
   useInjectReducer({ key: slice.name, reducer: slice.reducer });
-  useInjectSaga({ key: slice.name, saga: authregisterSaga });
+  useInjectSaga({ key: slice.name, saga: forgetpasswordSaga });
   return { actions: slice.actions };
 };

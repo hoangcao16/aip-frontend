@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { Input, Button, Row, Col } from 'antd';
 import { Link } from 'react-router-dom';
 import { Container, FormItem } from './style';
@@ -6,9 +5,12 @@ import BG_VIDEO from 'app/assets/images/imagesGuide/bg_video.mp4';
 import LOGO_LOGIN from 'app/assets/images/imagesGuide/logo-login.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm, Controller } from 'react-hook-form';
+import { selectAuthlogin } from 'app/container/LoginContainer/slice/selectors';
+import { useAuthloginSlice } from 'app/container/LoginContainer/slice';
 const LoginContainer = () => {
   const dispatch = useDispatch();
-  const [loading, setLoading] = useState(false);
+  const { actions } = useAuthloginSlice();
+  const { isLoading } = useSelector(selectAuthlogin);
 
   const {
     control,
@@ -17,7 +19,7 @@ const LoginContainer = () => {
   } = useForm();
   // submit form
   const onSubmitLogin = data => {
-    console.log(data);
+    dispatch(actions.loginRequest(data));
   };
   return (
     <>
@@ -35,7 +37,6 @@ const LoginContainer = () => {
             <Col span={12} className="login-form">
               <div className="form-content">
                 <h3 className="title">Login</h3>
-                {/* Check form */}
                 <form onSubmit={handleSubmit(onSubmitLogin)}>
                   <FormItem>
                     <Controller
@@ -51,7 +52,11 @@ const LoginContainer = () => {
                           </div>
                           <Input
                             {...field}
-                            className="formitem-input"
+                            className={
+                              errors?.username
+                                ? 'formitem-input error'
+                                : 'formitem-input'
+                            }
                             autoFocus={true}
                             allowClear
                             id="username"
@@ -82,7 +87,11 @@ const LoginContainer = () => {
                           </div>
                           <Input.Password
                             {...field}
-                            className="formitem-input"
+                            className={
+                              errors?.password
+                                ? 'formitem-input error'
+                                : 'formitem-input'
+                            }
                             type="password"
                             id="password"
                             placeholder="Your password"
@@ -95,10 +104,10 @@ const LoginContainer = () => {
                     block={true}
                     type="primary"
                     htmlType="submit"
-                    disabled={loading}
+                    disabled={isLoading}
                     className="form-button"
                   >
-                    {loading ? 'Vui lòng đợi...' : 'Login now'}
+                    {isLoading ? 'Vui lòng đợi...' : 'Login now'}
                   </Button>
 
                   <p>
