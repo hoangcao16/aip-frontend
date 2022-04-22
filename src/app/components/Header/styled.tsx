@@ -52,6 +52,12 @@ const Styled = {
             border: 0;
           }
         }
+        .ant-menu-item-selected.console {
+          a {
+            color: ${({ theme }) => theme.neutral_white} !important;
+            font-weight: 400;
+          }
+        }
         .ant-menu-item-active {
           color: ${({ theme }) => theme.primary_700} !important;
           border-bottom: 0;

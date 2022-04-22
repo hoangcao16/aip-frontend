@@ -8,7 +8,7 @@ const Styled = {
         font-size: 28px;
         font-weight: 600;
         line-height: 40px;
-        color: $neutral-900;
+        color: ${({ theme }) => theme.neutral_900};
         margin-bottom: 20px;
         margin-top: 40px;
       }
@@ -17,25 +17,25 @@ const Styled = {
         line-height: 28px;
         font-weight: 700;
         margin: 0;
-        color: $neutral-900;
+        color: ${({ theme }) => theme.neutral_900};
       }
       p {
-        color: $neutral-900;
+        color: ${({ theme }) => theme.neutral_900};
         margin-bottom: 60px;
       }
     }
 
     .ant-anchor-link-title {
-      color: $neutral-600;
+      color: ${({ theme }) => theme.neutral_600};
     }
 
     .ant-anchor-link-active > .ant-anchor-link-title {
-      color: $neutral-700 !important;
+      color: ${({ theme }) => theme.neutral_700} !important;
       font-weight: 600 !important;
     }
 
     .ant-anchor-ink-ball {
-      border-color: $neutral-700;
+      border-color: ${({ theme }) => theme.neutral_700};
     }
   `,
 };
