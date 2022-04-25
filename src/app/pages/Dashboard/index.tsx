@@ -9,7 +9,7 @@ import React from 'react';
 import AccessToken from './components/AccessToken';
 import DashboardPage from './components/DashboardPage';
 import Feedback from './components/Feedback';
-import HeaderDashboard from './components/HeaderDashboard';
+import HeaderDashboard from '../../components/HeaderDashboard';
 import TryDemo from './components/TryDemo';
 
 const tabDasboard = [

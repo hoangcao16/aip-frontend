@@ -29,6 +29,8 @@ import Documentation from './pages/Documentation';
 import Dashboard from './pages/Dashboard';
 import PrivateRoute from 'app/components/common/privateRoute';
 import PublicRoute from 'app/components/common/publicRoute';
+import ManageAccount from './pages/ManageAccount';
+import 'react-phone-number-input/style.css';
 
 export function App() {
   const { theme } = useThemeContext();
@@ -48,6 +50,15 @@ export function App() {
             element={
               <PrivateRoute>
                 <Dashboard />
+              </PrivateRoute>
+              // <Dashboard />
+            }
+          />
+          <Route
+            path="/manage"
+            element={
+              <PrivateRoute>
+                <ManageAccount />
               </PrivateRoute>
             }
           />

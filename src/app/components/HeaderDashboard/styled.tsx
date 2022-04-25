@@ -69,27 +69,27 @@ const Styled = {
             color: ${({ theme }) => theme.primary_700};
           }
         }
-        .ant-btn {
-          background-color: ${({ theme }) => theme.primary_600};
-          width: 110px;
-          height: 48px;
-          border: 0;
-          a {
-            color: ${({ theme }) => theme.neutral_white};
-            font-size: 16px;
-            &:hover {
-              color: ${({ theme }) => theme.neutral_white};
-            }
-          }
-          &:hover {
-            background-color: ${({ theme }) => theme.primary_700};
-            color
-            border: 0;
-          }
+      }
+      .user {
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        a {
+          color: ${({ theme }) => theme.neutral_900};
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 24px;
+          border-left: 1px solid ${({ theme }) => theme.neutral_400};
+          padding-left: 20px;
+        }
+        .anticon svg {
+          font-size: 24px;
+          margin-top: -10px;
+          margin-left: 5px;
         }
       }
     }
-    
   `,
 };
 export default Styled;

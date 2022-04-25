@@ -3,8 +3,12 @@ import { Col, Menu, Row } from 'antd';
 import { Link } from 'react-router-dom';
 import LOGO from 'app/assets/images/imagesGuide/logo.png';
 import Styled from './styled';
+import { UserOutlined } from '@ant-design/icons';
 
 function HeaderDashboard() {
+  const user: any = localStorage.getItem('user');
+  const name = JSON.parse(user);
+
   return (
     <Styled.HeaderDashboard>
       <Row justify="center" className="header-dasboard">
@@ -13,7 +17,7 @@ function HeaderDashboard() {
             <img src={LOGO} alt="logo" />
           </Link>
         </Col>
-        <Col span={18}>
+        <Col span={16}>
           <Menu mode="horizontal">
             <Menu.Item key="feature">
               <Link to={'/'}>Homepage</Link>
@@ -21,10 +25,14 @@ function HeaderDashboard() {
             <Menu.Item key="documentation">
               <Link to={'/documentation'}>Documentation</Link>
             </Menu.Item>
-            <Menu.Item className="userInfo" key="user">
-              Tuấn
-            </Menu.Item>
           </Menu>
+        </Col>
+        <Col span={2}>
+          <div className="user">
+            <Link to={'/manage'}>
+              <span>{name.user.full_name}</span> <UserOutlined />
+            </Link>
+          </div>
         </Col>
       </Row>
     </Styled.HeaderDashboard>
