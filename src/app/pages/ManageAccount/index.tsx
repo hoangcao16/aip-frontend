@@ -1,5 +1,4 @@
 import CustomTabs from 'app/components/Tabs/CustomTabs';
-import React, { useState } from 'react';
 import HeaderDashboard from 'app/components/HeaderDashboard';
 import PersonalInformation from './components/PersonalInformation';
 import ChangePassword from './components/ChangePassword';
