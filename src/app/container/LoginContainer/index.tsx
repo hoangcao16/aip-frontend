@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Input, Button, Row, Col } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Container, FormItem } from './style';
 import BG_VIDEO from 'app/assets/images/imagesGuide/bg_video.mp4';
 import LOGO_LOGIN from 'app/assets/images/imagesGuide/logo-login.png';
@@ -7,8 +8,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useForm, Controller } from 'react-hook-form';
 import { selectAuthlogin } from 'app/container/LoginContainer/slice/selectors';
 import { useAuthloginSlice } from 'app/container/LoginContainer/slice';
+import { useEffect } from 'react';
 const LoginContainer = () => {
   const dispatch = useDispatch();
+  let navigate = useNavigate();
   const { actions } = useAuthloginSlice();
   const { isLoading } = useSelector(selectAuthlogin);
 
@@ -19,7 +22,11 @@ const LoginContainer = () => {
   } = useForm();
   // submit form
   const onSubmitLogin = data => {
-    dispatch(actions.loginRequest(data));
+    const sendData = {
+      data: data,
+      navigate: navigate,
+    };
+    dispatch(actions.loginRequest(sendData));
   };
   return (
     <>
