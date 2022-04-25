@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React, { useEffect, useState } from 'react';
 import { message, Upload } from 'antd';
 import Styled from './styled';
 
@@ -7,27 +8,32 @@ function getBase64(img: any, callback: any) {
   reader.addEventListener('load', () => callback(reader.result));
   reader.readAsDataURL(img);
 }
-const CustomUpload = () => {
+const CustomUpload = props => {
   const [imageUrl, setImageUrl] = useState<any>(null);
   const [loading, setLoading] = useState<Boolean>(false);
+  const { callbackImg, selectTabs } = props;
   const handleChange = (info: any) => {
-    console.log(info);
-
-    if (info.file.status === 'uploading') {
-      setLoading(true);
-    }
-    if (info.file.status === 'done') {
-      // Get this url from response in real world.
-      getBase64(info.file.originFileObj, (imageUrl: any) => {
-        setLoading(false);
-        setImageUrl(imageUrl);
-      });
-    } else if (info.file.status === 'error') {
-      message.error(`${info.file.name} file upload failed.`);
+    // if (info.file.status === 'uploading') {
+    //   setLoading(true);
+    // }
+    // if (info.file.status === 'done') {
+    // Get this url from response in real world.
+    getBase64(info.file.originFileObj, (imageUrl: any) => {
       setLoading(false);
-    }
+      setImageUrl(imageUrl);
+      callbackImg(info.file.originFileObj);
+    });
+    // } else if (info.file.status === 'error') {
+    // message.error(`${info.file.name} file upload failed.`);
+    // setLoading(false);
+    // }
   };
-
+  useEffect(() => {
+    setImageUrl(null);
+    return () => {
+      setImageUrl(null);
+    };
+  }, [selectTabs]);
   function beforeUpload(file: any) {
     console.log(file);
 
@@ -58,7 +64,9 @@ const CustomUpload = () => {
         listType="picture-card"
         className="camera-image"
         showUploadList={false}
-        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+        multiple={false}
+        maxCount={1}
+        // action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
         beforeUpload={beforeUpload}
         onChange={handleChange}
       >
