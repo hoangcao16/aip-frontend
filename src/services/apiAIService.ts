@@ -1,16 +1,19 @@
 import axios from 'axios';
-import config from '../config';
+import { config_AI } from '../config';
 import { authService } from './authService';
 
-const apiClient = axios.create(config.api);
+const apiAiClient = axios.create(config_AI.api);
 
 // Request interceptor
-apiClient.interceptors.request.use(
+apiAiClient.interceptors.request.use(
   (config: any) => {
     const accessToken = localStorage.getItem('access_token');
 
     if (accessToken) {
-      config.headers.common.Authorization = `${accessToken}`;
+      // config.headers.common.Authorization = `${accessToken}`;
+      config.headers['client-id'] = '27ff5a35-1d34-4811-bd2f-1a28505ea7a4';
+      config.headers['client-secret'] =
+        'Wpo13R61OL9zMSlocxoa0vusMt78hEh8XIAHe7VtQrQ';
     }
 
     config.headers.common['Content-Type'] = 'application/json';
@@ -23,7 +26,7 @@ apiClient.interceptors.request.use(
 );
 
 // Response interceptor
-apiClient.interceptors.response.use(
+apiAiClient.interceptors.response.use(
   response => {
     return response;
   },
@@ -39,4 +42,4 @@ apiClient.interceptors.response.use(
   },
 );
 
-export default apiClient;
+export default apiAiClient;

@@ -145,6 +145,15 @@ export const Container = styled.div`
   .form-button {
     margin-bottom: 36px;
   }
+  .ant-input-affix-wrapper {
+    border: 1px solid ${({ theme }) => theme.neutral_500};
+    &:hover {
+      border-color: ${({ theme }) => theme.neutral_900};
+    }
+  }
+  .ant-input-affix-wrapper-focused {
+    box-shadow: 0 0 0 2px #1e262e33;
+  }
 `;
 export const FormItem = styled.div`
   /* margin-bottom: 24px; */
