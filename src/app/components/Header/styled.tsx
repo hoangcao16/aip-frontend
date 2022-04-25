@@ -35,6 +35,7 @@ const Styled = {
             font-size: 16px;
             color: ${({ theme }) => theme.neutral_600};
             width: 100px;
+            font-weight: 600;
           }
           &:after {
             border-bottom: 0;
