@@ -27,6 +27,8 @@ import { darkTheme, lightTheme } from 'theme/theme';
 import 'antd/dist/antd.min.css';
 import Documentation from './pages/Documentation';
 import Dashboard from './pages/Dashboard';
+import PrivateRoute from 'app/components/common/privateRoute';
+import PublicRoute from 'app/components/common/publicRoute';
 
 export function App() {
   const { theme } = useThemeContext();
@@ -41,12 +43,54 @@ export function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/documentation" element={<Documentation />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/forget" element={<ForgetPasswordPage />} />
-          <Route path="/change-pass/:id" element={<UpdatePasswordPage />} />
-          <Route path="/active/:userActiveId" element={<ActiveAccountPage />} />
+          <Route
+            path="/dashboard"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <PublicRoute>
+                <LoginPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <PublicRoute>
+                <RegisterPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/forget"
+            element={
+              <PublicRoute>
+                <ForgetPasswordPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/change-pass/:id"
+            element={
+              <PublicRoute>
+                <UpdatePasswordPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/active/:userActiveId"
+            element={
+              <PublicRoute>
+                <ActiveAccountPage />
+              </PublicRoute>
+            }
+          />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <GlobalStyle />

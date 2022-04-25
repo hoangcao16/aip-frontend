@@ -9,11 +9,11 @@ function* handleRegister(action) {
   try {
     const response = yield call(authService.register, action.payload);
     console.log(response);
-    if (response.rc.code === 0) {
-      NotificationSuccess('Thành công', response.rc.desc);
-      yield put(actions.forgetPasswordSuccess(response));
-    } else if (response.rc.code !== 0) {
-      NotificationError('Có lỗi', response.rc.desc);
+    if (response.data.rc.code === 0) {
+      NotificationSuccess('Thành công', response.data.rc.desc);
+      yield put(actions.forgetPasswordSuccess(response.data));
+    } else if (response.data.rc.code !== 0) {
+      NotificationError('Có lỗi', response.data.rc.desc);
     }
   } catch (err: any) {
     yield put(actions.forgetPasswordFail(err.response));

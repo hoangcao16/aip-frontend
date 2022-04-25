@@ -9,11 +9,11 @@ function* handleRegister(action) {
   try {
     const response = yield call(authService.register, action.payload);
     console.log(response);
-    if (response.rc.code === 0) {
-      NotificationSuccess('Thành công', response.rc.desc);
-      yield put(actions.registerSuccess(response));
-    } else if (response.rc.code !== 0) {
-      NotificationError('Có lỗi', response.rc.desc);
+    if (response.data.rc.code === 0) {
+      NotificationSuccess('Thành công', response.data.rc.desc);
+      yield put(actions.registerSuccess(response.data));
+    } else if (response.data.rc.code !== 0) {
+      NotificationError('Có lỗi', response.data.rc.desc);
     }
   } catch (err: any) {
     yield put(actions.registerFail(err.response));
