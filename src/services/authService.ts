@@ -44,6 +44,13 @@ export const authService = {
       url: `/aipaccountsvc/active/${id}`,
     });
   },
+  logout() {
+    return (
+      localStorage.removeItem('access_token'),
+      localStorage.removeItem('user'),
+      localStorage.setItem('current', 'feature')
+    );
+  },
   setAccessToken(token: string) {
     return localStorage.setItem('access_token', token);
   },

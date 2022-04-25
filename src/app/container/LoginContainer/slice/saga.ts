@@ -10,6 +10,8 @@ function* handleLogin(action) {
 
   try {
     const response = yield call(authService.login, data);
+    console.log(response.data);
+
     if (response.data.rc.code === 0) {
       NotificationSuccess('Thành công', response.data.rc.desc);
       yield put(actions.loginSuccess(response.data));

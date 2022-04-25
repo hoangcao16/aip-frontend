@@ -94,8 +94,8 @@ const HomePageContent = (props: any) => {
                       </p>
                     </div>
                     <div className="option__list">
-                      {listOption.map(item => (
-                        <div className="option__item">
+                      {listOption.map((item, index) => (
+                        <div className="option__item" key={index}>
                           <span className="option__type">
                             <CheckOutlined className="icon" />
                           </span>

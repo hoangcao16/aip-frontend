@@ -100,4 +100,33 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 20px;
   }
 }
+
+.ant-modal-content {
+  padding: 24px;
+  .ant-modal-body {
+    padding: 0;
+  }
+  .ant-modal-confirm-body-wrapper {
+    .anticon {
+      display: none;
+    }
+    .ant-modal-confirm-title {
+      padding: 12px;
+      color: ${({ theme }) => theme.neutral_black};
+      font-weight: 400;
+    }
+    .ant-btn {
+      height: 48px;
+      width: 96px;
+    }
+    .ant-btn-primary {
+      background-color: ${({ theme }) => theme.primary_600};
+      border: 0;
+      &:hover {
+        background-color: ${({ theme }) => theme.primary_700};
+      }
+    }
+  }
+  
+}
 `;
