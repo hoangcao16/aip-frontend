@@ -5,9 +5,11 @@ import CustomUpload from 'app/components/CustomUpload';
 const FaceMatching = () => {
   return (
     <div className="face-matching">
-      <p>
-        Remaining request: <span>1,932/5000</span>
-      </p>
+      <div className="remaining">
+        <p>
+          Remaining request: <span>1,932/5000</span>
+        </p>
+      </div>
       <div className="execute">
         <div className="execute__image">
           <CustomUpload />
