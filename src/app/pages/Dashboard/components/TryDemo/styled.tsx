@@ -53,7 +53,7 @@ const Styled = {
     }
 
     .face-matching {
-      p {
+      .remaining {
         text-align: right !important;
         color: ${({ theme }) => theme.secondary_900};
         padding: 8px;
