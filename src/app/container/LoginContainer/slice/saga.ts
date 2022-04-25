@@ -14,6 +14,7 @@ function* handleLogin(action) {
       NotificationSuccess('Thành công', response.data.rc.desc);
       yield put(actions.loginSuccess(response.data));
       localStorage.setItem('access_token', response.data.token);
+      localStorage.setItem('user', response.data);
       navigate('/dashboard');
     } else if (response.data.rc.code !== 0) {
       NotificationError('Có lỗi', response.data.rc.desc);

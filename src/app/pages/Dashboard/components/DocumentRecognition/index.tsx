@@ -1,4 +1,5 @@
-import { Radio } from 'antd';
+import { Button, Radio } from 'antd';
+import CustomUpload from 'app/components/CustomUpload';
 import React, { useState } from 'react';
 
 const DocumentRecognition = () => {
@@ -14,6 +15,15 @@ const DocumentRecognition = () => {
         <p>
           Remaining request: <span>1,932/5000</span>
         </p>
+      </div>
+      <div className="execute">
+        <div className="execute__image">
+          <CustomUpload />
+          <CustomUpload />
+        </div>
+        <div className="execute__button">
+          <Button disabled>Execute</Button>
+        </div>
       </div>
     </div>
   );

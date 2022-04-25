@@ -56,7 +56,7 @@ export const Container = styled.div`
       font-size: 28px;
       line-height: 40px;
       color: #1e262e;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
     .form-content {
       width: 62%;
@@ -108,6 +108,7 @@ export const Container = styled.div`
     }
     font-weight: 600;
     margin-top: 36px;
+    margin-bottom: 16px !important;
   }
   .ant-input {
     height: 56px;

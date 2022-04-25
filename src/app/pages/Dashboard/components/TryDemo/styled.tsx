@@ -62,25 +62,25 @@ const Styled = {
           font-weight: 600;
         }
       }
-      .execute {
-        margin-top: 10px;
-        &__image {
-          display: flex;
-          justify-content: space-between;
-          gap: 10%;
-        }
-        &__button {
-          margin: 50px auto;
-          text-align: center;
-          .ant-btn {
-            height: 56px;
-            width: 200px;
-            span {
-              font-size: 18px;
-              line-height: 28px;
-              font-weight: 700;
-              color: $neutral-500;
-            }
+    }
+    .execute {
+      margin-top: 10px;
+      &__image {
+        display: flex;
+        justify-content: space-between;
+        gap: 10%;
+      }
+      &__button {
+        margin: 50px auto;
+        text-align: center;
+        .ant-btn {
+          height: 56px;
+          width: 200px;
+          span {
+            font-size: 18px;
+            line-height: 28px;
+            font-weight: 700;
+            color: $neutral-500;
           }
         }
       }
