@@ -9,6 +9,7 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { useEffect } from 'react';
 
 import { GlobalStyle } from '../styles/global-styles';
 import { ThemeProvider } from 'styled-components';
@@ -20,6 +21,7 @@ import {
   UpdatePasswordPage,
   ActiveAccountPage,
 } from './pages/Auth/Loadable';
+import { authService } from 'services/authService';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
 import { useThemeContext } from 'app/components/common/themeContext';
@@ -36,6 +38,12 @@ export function App() {
   const { theme } = useThemeContext();
   const { i18n } = useTranslation();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
+
+  // check access token
+  useEffect(() => {
+    authService.checkAccessToken();
+    authService.autoRefreshAccessToken();
+  }, []);
   return (
     <BrowserRouter>
       <ThemeProvider theme={themeMode}>

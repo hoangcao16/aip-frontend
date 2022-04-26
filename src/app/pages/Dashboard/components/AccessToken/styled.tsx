@@ -15,7 +15,7 @@ const Styled = {
         width: 41%;
         padding: 0;
         padding-bottom: 0;
-        margin-bottom: 40px;
+        margin-bottom: 68px;
         .ant-alert-message {
           color: ${({ theme }) => theme.neutral_900};
           font-size: 14px;
@@ -43,8 +43,8 @@ const Styled = {
         }
       }
       &__input {
-        margin-top: 10px;
-        margin-bottom: 30px;
+        margin-top: 12px;
+        margin-bottom: 32px;
         width: 50%;
         position: relative;
       }
@@ -91,6 +91,15 @@ const Styled = {
         }
       }
     }
+  `,
+  Label: styled.div`
+    color: ${({ theme }) => theme.neutral_900};
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+  `,
+  Not: styled.span`
+    font-weight: 600;
   `,
 };
 export default Styled;

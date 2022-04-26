@@ -1,4 +1,5 @@
 import { PayloadAction } from '@reduxjs/toolkit';
+import { authService } from 'services/authService';
 import { createSlice } from 'utils/@reduxjs/toolkit';
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 import { authloginSaga } from './saga';
@@ -19,6 +20,8 @@ const slice = createSlice({
     loginSuccess(state, action) {
       state.responseLogin = action.payload;
       state.isLoading = false;
+      authService.autoRefreshAccessToken();
+      authService.checkAccessToken();
     },
     loginFail(state, action) {
       state.responseLogin = action.payload;

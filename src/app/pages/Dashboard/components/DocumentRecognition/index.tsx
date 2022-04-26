@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useRecognitionSlice } from './slice';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectRecognition } from './slice/selectors';
+
 const DocumentRecognition = () => {
   const dispatch = useDispatch();
   const [selectTabs, setSelectTabs] = useState<any>(false);

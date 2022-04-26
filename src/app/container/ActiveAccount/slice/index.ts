@@ -6,7 +6,6 @@ import { ActiveaccountState } from './types';
 
 export const initialState: ActiveaccountState = {
   isLoading: false,
-  isActive: false,
 };
 
 const slice = createSlice({
@@ -18,14 +17,9 @@ const slice = createSlice({
     },
     activeAccountSuccess(state, action: PayloadAction<any>) {
       state.isLoading = false;
-      state.isActive = true;
     },
     activeAccountFail(state, action: PayloadAction<any>) {
       state.isLoading = false;
-    },
-    resetState(state) {
-      state.isLoading = false;
-      state.isActive = false;
     },
   },
 });

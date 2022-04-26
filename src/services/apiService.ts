@@ -10,11 +10,8 @@ apiClient.interceptors.request.use(
     const accessToken = localStorage.getItem('access_token');
 
     if (accessToken) {
-      config.headers.common.Authorization = `${accessToken}`;
+      config.headers.common.token = `${accessToken}`;
     }
-    // config.headers.common['client-id'] = '27ff5a35-1d34-4811-bd2f-1a28505ea7a4';
-    // config.headers.common['client-secret'] =
-    //   'Wpo13R61OL9zMSlocxoa0vusMt78hEh8XIAHe7VtQrQ';
     config.headers.common['Content-Type'] = 'application/json';
     config.headers.common['Accept'] = 'application/json';
     return config;
