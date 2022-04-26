@@ -11,6 +11,17 @@ import DashboardPage from './components/DashboardPage';
 import Feedback from './components/Feedback';
 import HeaderDashboard from '../../components/HeaderDashboard';
 import TryDemo from './components/TryDemo';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  .ant-tabs-nav {
+    background-color: ${({ theme }) => theme.neutral_100};
+    margin-right: 1px;
+  }
+  .ant-tabs-tab-active {
+    background-color: ${({ theme }) => theme.neutral_white} !important;
+  }
+`;
 
 const tabDasboard = [
   {
@@ -29,10 +40,10 @@ const tabDasboard = [
 
 const Dashboard = () => {
   return (
-    <div>
+    <Container>
       <HeaderDashboard />
       <CustomTabs dataTabs={tabDasboard} />
-    </div>
+    </Container>
   );
 };
 

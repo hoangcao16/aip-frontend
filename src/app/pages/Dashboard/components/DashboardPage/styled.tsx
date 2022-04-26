@@ -112,6 +112,9 @@ const Styled = {
           border-right: 1px solid ${({ theme }) => theme.neutral_400} !important;
         }
       }
+      .ant-tabs-nav {
+        background-color: ${({ theme }) => theme.neutral_white};
+      }
       .ant-tabs-content-holder {
         border-left: 0;
         min-height: 300px !important;

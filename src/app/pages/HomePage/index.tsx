@@ -11,7 +11,7 @@ export function HomePage() {
         <title>Home Page</title>
         <meta name="description" content="A Synodus application homepage" />
       </Helmet>
-      <Header isLogin={false} />
+      <Header />
       <HomePageContent />
       <Footer />
     </>

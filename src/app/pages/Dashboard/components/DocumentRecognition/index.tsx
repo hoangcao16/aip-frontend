@@ -1,4 +1,4 @@
-import { Button, Radio } from 'antd';
+import { Button, Card, Radio, Spin } from 'antd';
 import CustomUpload from 'app/components/CustomUpload';
 import React, { useState } from 'react';
 import { useRecognitionSlice } from './slice';
@@ -7,12 +7,15 @@ import { selectRecognition } from './slice/selectors';
 
 const DocumentRecognition = () => {
   const dispatch = useDispatch();
-  const [selectTabs, setSelectTabs] = useState<any>(false);
+  const [isExecute, setIsExecute] = useState(false);
+  const [selectTabs, setSelectTabs] = useState<Boolean>(false);
   const { actions } = useRecognitionSlice();
-  const { isLoading } = useSelector(selectRecognition);
+  const { isLoading, data } = useSelector(selectRecognition);
   const [type, setType] = useState('ID Card');
   const [frontImageUrl, setfrontImageUrl] = useState(null);
   const [backImageUrl, setBackImageUrl] = useState(null);
+  console.log(data);
+
   const isDisabled = () => {
     if (type === 'ID Card') {
       if (!frontImageUrl || !backImageUrl) {
@@ -35,6 +38,7 @@ const DocumentRecognition = () => {
     setBackImageUrl(url);
   };
   const handleExecute = () => {
+    setIsExecute(true);
     if (type === 'ID Card') {
       if (frontImageUrl && backImageUrl) {
         const fm = new FormData();
@@ -81,35 +85,75 @@ const DocumentRecognition = () => {
               <CustomUpload
                 callbackImg={handleSetFrontImageUrl}
                 selectTabs={selectTabs}
+                isExecute={isExecute}
               />
               <CustomUpload
                 callbackImg={handleSetBackImageUrl}
                 selectTabs={selectTabs}
+                isExecute={isExecute}
               />
             </>
           ) : type === 'Passport' ? (
             <CustomUpload
               callbackImg={handleSetFrontImageUrl}
               selectTabs={selectTabs}
+              isExecute={isExecute}
             />
           ) : (
             <>
               <CustomUpload
                 callbackImg={handleSetFrontImageUrl}
                 selectTabs={selectTabs}
+                isExecute={isExecute}
               />
             </>
           )}
+          {!isExecute && (
+            <div
+              className={
+                type === 'ID Card' ? 'execute__button' : 'passport-button'
+              }
+            >
+              <Button
+                disabled={isDisabled()}
+                onClick={handleExecute}
+                type="primary"
+              >
+                Execute
+              </Button>
+            </div>
+          )}
         </div>
-        <div className="execute__button">
-          <Button
-            disabled={isDisabled()}
-            onClick={handleExecute}
-            type="primary"
+        {isExecute && (
+          <div
+            className="result"
+            style={{ width: '100%', marginBottom: '40px' }}
           >
-            {isLoading ? 'Executing...' : 'Execute'}
-          </Button>
-        </div>
+            <Card
+              size="default"
+              title="Result"
+              extra={
+                <Button
+                  onClick={() => {
+                    setIsExecute(false);
+                    setfrontImageUrl(null);
+                    setBackImageUrl(null);
+                  }}
+                >
+                  Try again
+                </Button>
+              }
+              style={{ width: '100%', marginBottom: '40px' }}
+            >
+              {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
+              {isLoading ? (
+                <Spin />
+              ) : (
+                <pre>{JSON.stringify(data, null, 2)}</pre>
+              )}
+            </Card>
+          </div>
+        )}
       </div>
     </div>
   );

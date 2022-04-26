@@ -8,7 +8,7 @@ import DocumentationPage from './components/DocumentationPage';
 const Documentation = () => {
   return (
     <div>
-      <Header isLogin={false} />
+      <Header />
       <DocumentationPage />
       <Footer />
     </div>

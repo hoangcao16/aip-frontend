@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { message, Upload } from 'antd';
 import Styled from './styled';
+import { PictureFilled } from '@ant-design/icons';
 
 function getBase64(img: any, callback: any) {
   const reader = new FileReader();
@@ -11,7 +12,8 @@ function getBase64(img: any, callback: any) {
 const CustomUpload = props => {
   const [imageUrl, setImageUrl] = useState<any>(null);
   const [loading, setLoading] = useState<Boolean>(false);
-  const { callbackImg, selectTabs } = props;
+  const { callbackImg, selectTabs, isExecute } = props;
+
   const handleChange = (info: any) => {
     // if (info.file.status === 'uploading') {
     //   setLoading(true);
@@ -34,6 +36,14 @@ const CustomUpload = props => {
       setImageUrl(null);
     };
   }, [selectTabs]);
+  useEffect(() => {
+    if (isExecute === false) {
+      setImageUrl(null);
+    } else {
+      return;
+    }
+  }, [isExecute]);
+
   function beforeUpload(file: any) {
     console.log(file);
 
@@ -50,7 +60,7 @@ const CustomUpload = props => {
 
   const uploadButton = (
     <div>
-      {/* <Icon type={loading ? 'loading' : 'picture'} /> */}
+      <PictureFilled />
       <div className="ant-upload-text">
         Click or drag file to this area to upload
       </div>
