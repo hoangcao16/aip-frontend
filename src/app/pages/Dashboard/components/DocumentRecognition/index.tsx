@@ -14,7 +14,7 @@ const DocumentRecognition = () => {
   const [type, setType] = useState('ID Card');
   const [frontImageUrl, setfrontImageUrl] = useState(null);
   const [backImageUrl, setBackImageUrl] = useState(null);
-  console.log(data);
+  console.log(useSelector(selectRecognition));
 
   const isDisabled = () => {
     if (type === 'ID Card') {
@@ -145,9 +145,9 @@ const DocumentRecognition = () => {
               }
               style={{ width: '100%', marginBottom: '40px' }}
             >
-              {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
+              {/* <Spin size="large" /> */}
               {isLoading ? (
-                <Spin />
+                <Spin size="large" />
               ) : (
                 <pre>{JSON.stringify(data, null, 2)}</pre>
               )}
