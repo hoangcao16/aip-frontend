@@ -6,14 +6,15 @@ import {
   NotificationError,
 } from 'app/components/Notification/Notification';
 function* handleRegister(action) {
+  const { userActiveId, navigate } = action.payload;
   try {
-    const response = yield call(authService.active, action.payload);
-    console.log(response);
+    const response = yield call(authService.active, userActiveId);
     if (response.data.rc.code === 0) {
-      NotificationSuccess('Thành công', response.data.rc.desc);
+      NotificationSuccess('Active Account Successfully', response.data.rc.desc);
       yield put(actions.activeAccountSuccess(response.data));
+      navigate('/login');
     } else if (response.data.rc.code !== 0) {
-      NotificationError('Có lỗi', response.data.rc.desc);
+      NotificationError('Active Account Fail', response.data.rc.desc);
     }
   } catch (err: any) {
     yield put(actions.activeAccountFail(err.response));

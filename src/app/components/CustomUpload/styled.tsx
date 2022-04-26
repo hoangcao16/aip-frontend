@@ -16,8 +16,9 @@ const Styled = {
         margin-top: 20px;
       }
       img {
-        width: auto !important;
-        height: 100%;
+        width: auto;
+        height: 312px;
+        object-fit: contain;
       }
     }
   `,

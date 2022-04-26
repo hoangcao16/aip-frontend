@@ -8,12 +8,14 @@ import {
 function* handleRegister(action) {
   try {
     const response = yield call(authService.register, action.payload);
-    console.log(response);
     if (response.data.rc.code === 0) {
-      NotificationSuccess('Thành công', response.data.rc.desc);
+      NotificationSuccess(
+        'Update Password Successfully',
+        response.data.rc.desc,
+      );
       yield put(actions.updatePasswordSuccess(response.data));
     } else if (response.data.rc.code !== 0) {
-      NotificationError('Có lỗi', response.data.rc.desc);
+      NotificationError('Update Password Fail', response.data.rc.desc);
     }
   } catch (err: any) {
     yield put(actions.updatePasswordFail(err.response));

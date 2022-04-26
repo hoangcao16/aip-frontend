@@ -61,13 +61,13 @@ export const authService = {
     return localStorage.removeItem('access_token');
   },
   setUserId(id: string) {
-    return localStorage.setItem('userId', id);
+    return localStorage.setItem('user', id);
   },
   getUserId() {
-    return localStorage.getItem('userId');
+    return localStorage.getItem('user');
   },
   removeUserId() {
-    return localStorage.removeItem('userId');
+    return localStorage.removeItem('user');
   },
   getDecodedAccessToken() {
     const token = this.getAccessToken();
@@ -96,6 +96,7 @@ export const authService = {
     ) {
       this.removeAccessToken();
       this.removeUserId();
+      this.logout();
       window.location.href = '/';
     }
   },
@@ -118,6 +119,7 @@ export const authService = {
       ) {
         this.removeAccessToken();
         this.removeUserId();
+        this.logout();
         clearInterval(intervalId);
         window.location.href = '/';
       }

@@ -1,14 +1,12 @@
 import { takeEvery, all, put, call } from 'redux-saga/effects';
 import { recognitionActions as actions } from '.';
 import { docRecognitionService } from 'services/documentRecognitionService';
-
 function* handleRecognitionId(action) {
   try {
     const response = yield call(
       docRecognitionService.recognitionId,
       action.payload,
     );
-    console.log(response);
     yield put(actions.recognitionIdSuccess(response.data));
   } catch (err: any) {
     yield put(actions.recognitionIdFail(err));
@@ -18,7 +16,6 @@ function* handleRecognitionId(action) {
 function* handleRecognitionPassport(action) {
   try {
     const response = yield call(docRecognitionService.passport, action.payload);
-    console.log(response);
     yield put(actions.recognitionPassportSuccess(response.data));
   } catch (err: any) {
     yield put(actions.recognitionPassportFail(err));
@@ -31,7 +28,6 @@ function* handleRecognitionDriver(action) {
       docRecognitionService.driverLicense,
       action.payload,
     );
-    console.log(response);
     yield put(actions.recognitionDriversSuccess(response.data));
   } catch (err: any) {
     yield put(actions.recognitionDriversFail(err));
