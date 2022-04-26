@@ -5,6 +5,17 @@ import ChangePassword from './components/ChangePassword';
 import { Modal } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { authService } from 'services/authService';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  .ant-tabs-nav {
+    background-color: ${({ theme }) => theme.neutral_100};
+    margin-right: 1px;
+  }
+  .ant-tabs-tab-active {
+    background-color: ${({ theme }) => theme.neutral_white} !important;
+  }
+`;
 
 const tabManage = [
   {
@@ -36,10 +47,10 @@ const ManageAccount = () => {
   }
 
   return (
-    <div>
+    <Container>
       <HeaderDashboard />
       <CustomTabs dataTabs={tabManage} onLogout={confirm} />
-    </div>
+    </Container>
   );
 };
 

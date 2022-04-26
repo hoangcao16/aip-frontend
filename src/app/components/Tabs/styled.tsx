@@ -39,6 +39,8 @@ const Styled = {
         }
       }
       .ant-tabs-nav .ant-tabs-tab-active {
+        // background-color: ${({ theme }) => theme.neutral_white};
+        transition: all 0.3s linear;
         span {
           color: ${({ theme }) => theme.primary_600} !important;
           font-weight: 500 !important;

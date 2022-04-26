@@ -1,7 +1,6 @@
 import { Button, Input } from 'antd';
 import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
 import { Container, FormItem } from './styled';
 import PhoneInput from 'react-phone-number-input';
 

@@ -2,12 +2,13 @@ import styled from 'styled-components';
 
 const Styled = {
   CustomUpload: styled.div`
-    width: 100%;
+    width: 48%;
     .ant-upload.ant-upload-select-picture-card {
       width: 100%;
       height: 330px;
+      margin: 0;
       .anticon svg {
-        font-size: 50px;
+        font-size: 80px;
         color: #e4e5e8;
       }
       .ant-upload-text {
@@ -15,8 +16,8 @@ const Styled = {
         margin-top: 20px;
       }
       img {
-        width: 100%;
-        height: 312px;
+        width: auto !important;
+        height: 100%;
       }
     }
   `,

@@ -19,16 +19,11 @@ import Styled from './styled';
 //   showChangePasswordForm,
 //   logout,
 // });
-interface ParentProps {
-  isLogin: boolean;
-}
 
-// type PropsFromRedux = ConnectedProps<typeof connector>;
-interface IProps extends ParentProps {}
-
-function Header(props: IProps) {
+function Header() {
   // console.log('login', props.isLogin);
   // const [visiblePopover, setVisiblePopover] = useState<boolean>(false);
+  const token = localStorage.getItem('access_token');
   const [current, setCurrent] = useState(() => {
     return localStorage.getItem('current')
       ? `${localStorage.getItem('current')}`
@@ -108,11 +103,9 @@ function Header(props: IProps) {
               <Link to={'/documentation'}>Documentation</Link>
             </Menu.Item>
             <Menu.Item className="console" key="login">
-              {props.isLogin === false && (
-                <Button size="large">
-                  <Link to={'/login'}>Console</Link>
-                </Button>
-              )}
+              <Button size="large">
+                <Link to={`${token ? '/dashboard' : '/login'}`}>Console</Link>
+              </Button>
             </Menu.Item>
           </Menu>
         </Col>
