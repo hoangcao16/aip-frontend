@@ -17,7 +17,8 @@ const Styled = {
       }
       img {
         width: auto;
-        height: 312px;
+        min-height: 312px;
+        height: 100%;
         object-fit: contain;
       }
     }

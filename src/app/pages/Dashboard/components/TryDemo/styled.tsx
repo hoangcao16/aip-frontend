@@ -83,7 +83,7 @@ const Styled = {
         width: 48%;
         display: flex;
         align-items: flex-end;
-        margin-bottom: 10px;
+        margin-bottom: 2px;
       }
       &__button,
       .passport-button {
@@ -134,6 +134,15 @@ const Styled = {
             font-size: 14px;
             line-height: 20px;
             color: ${({ theme }) => theme.neutral_800};
+          }
+
+          .ant-spin-spinning {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+          }
+          .ant-spin-lg .ant-spin-dot {
+            font-size: 36px;
           }
         }
       }
