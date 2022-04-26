@@ -2,8 +2,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useActiveaccountSlice } from './slice';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectActiveaccount } from './slice/selectors';
+import { useDispatch } from 'react-redux';
 import { Container } from './style';
 import { Row, Col } from 'antd';
 import BG_VIDEO from 'app/assets/images/imagesGuide/bg_video.mp4';
@@ -12,17 +11,14 @@ const ActiveAccountContainer = () => {
   let navigate = useNavigate();
   const { userActiveId } = useParams();
   const { actions } = useActiveaccountSlice();
-  const { isActive } = useSelector(selectActiveaccount);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(actions.activeAccountRequest(userActiveId));
+    const data = {
+      userActiveId,
+      navigate,
+    };
+    dispatch(actions.activeAccountRequest(data));
   }, [userActiveId]);
-  useEffect(() => {
-    if (isActive === true) {
-      navigate('/login');
-      dispatch(actions.resetState());
-    }
-  }, [isActive]);
   return (
     <Container>
       <div className="bg-video">

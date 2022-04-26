@@ -10,16 +10,15 @@ function* handleLogin(action) {
 
   try {
     const response = yield call(authService.login, data);
-    console.log(response.data);
 
     if (response.data.rc.code === 0) {
-      NotificationSuccess('Thành công', response.data.rc.desc);
+      NotificationSuccess('Login SuccessFully', response.data.rc.desc);
       yield put(actions.loginSuccess(response.data));
       localStorage.setItem('access_token', response.data.token);
       localStorage.setItem('user', JSON.stringify(response.data));
       navigate('/dashboard');
     } else if (response.data.rc.code !== 0) {
-      NotificationError('Có lỗi', response.data.rc.desc);
+      NotificationError('Login Fail', response.data.rc.desc);
       yield put(actions.loginFail(response.data));
     }
   } catch (err: any) {

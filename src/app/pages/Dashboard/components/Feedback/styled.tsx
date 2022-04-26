@@ -9,7 +9,7 @@ const Styled = {
         color: ${({ theme }) => theme.neutral_900};
         font-weight: 600;
         margin: 0;
-        margin-top: 30px;
+        margin-top: 34px;
       }
       & > p {
         color: ${({ theme }) => theme.neutral_600};
@@ -17,13 +17,22 @@ const Styled = {
         line-height: 20px;
       }
       &__send {
-        margin-top: 32px;
+        margin-top: 44px;
+        .form-radio {
+          margin-bottom: 36px;
+        }
+        .form-input-title {
+          margin-bottom: 12px;
+        }
+        .form-input-message {
+          margin-bottom: 36px;
+        }
         h3 {
           color: ${({ theme }) => theme.neutral_900};
           font-size: 14px;
           line-height: 20px;
           font-weight: 600;
-          margin: 0;
+          margin: 0 0 12px 0;
         }
         .ant-radio-wrapper {
           span {
@@ -38,7 +47,7 @@ const Styled = {
         .input-title {
           height: 56px;
           font-size: 16px;
-          margin-top: 10px;
+          /* margin-top: 10px; */
         }
         .input-message {
           font-size: 16px;

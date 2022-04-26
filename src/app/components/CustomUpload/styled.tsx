@@ -15,8 +15,9 @@ const Styled = {
         margin-top: 20px;
       }
       img {
-        width: 100%;
+        width: auto;
         height: 312px;
+        object-fit: contain;
       }
     }
   `,
