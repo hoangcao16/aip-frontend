@@ -82,10 +82,10 @@ const DashboardPage = () => {
       </div>
       <Card className="chart">
         <Tabs tabBarExtraContent={operations}>
-          <TabPane tab="Statistical chart" key="Statistical chart">
+          <TabPane tab="Request frequency" key="Request frequency">
             <ChartLine />
           </TabPane>
-          <TabPane tab="Request chart" key="Request chart">
+          <TabPane tab="Request statistics" key="Request statistics">
             <ChartTable />
           </TabPane>
         </Tabs>
