@@ -26,6 +26,19 @@ const Styled = {
         }
         .form-input-message {
           margin-bottom: 36px;
+          padding: 0 16px 28px 0;
+          border: 1px solid #cad4df;
+          border-radius: 4px;
+          &:focus-within,
+          &:hover {
+            border: 1px solid ${({ theme }) => theme.secondary_400};
+          }
+          .ant-input-textarea-show-count:after {
+            color: ${({ theme }) => theme.neutral_600};
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 20px;
+          }
         }
         h3 {
           color: ${({ theme }) => theme.neutral_900};
@@ -47,11 +60,17 @@ const Styled = {
         .input-title {
           height: 56px;
           font-size: 16px;
+          border-radius: 4px;
           /* margin-top: 10px; */
         }
         .input-message {
           font-size: 16px;
-          padding: 10px 16px;
+          textarea {
+            border: none;
+            &:focus {
+              box-shadow: none;
+            }
+          }
         }
         .submit {
           background-color: ${({ theme }) => theme.secondary_600};
