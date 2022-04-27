@@ -127,6 +127,10 @@ export const Container = styled.div`
 
   a {
     font-size: 14px;
+    color: ${({ theme }) => theme.secondary_600};
+    &:hover {
+      color: ${({ theme }) => theme.secondary_500};
+    }
   }
 
   .ant-checkbox-checked .ant-checkbox-inner {
@@ -145,30 +149,32 @@ export const Container = styled.div`
   .form-button {
     margin-bottom: 36px;
   }
-  .ant-input-affix-wrapper {
-    border: 1px solid ${({ theme }) => theme.neutral_500};
-    &:hover {
-      border-color: ${({ theme }) => theme.neutral_900};
-    }
-  }
-  .ant-input-affix-wrapper-focused {
-    box-shadow: 0 0 0 2px #1e262e33;
-  }
 `;
 export const FormItem = styled.div`
   /* margin-bottom: 24px; */
   .formitem-label {
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 20px;
-    margin: 12px 0px;
-    color: ${({ theme }) => theme.neutral_700};
+    margin-bottom: 12px;
+
+    label {
+      font-size: 14px;
+      line-height: 20px;
+      margin: 12px 0px;
+      color: ${({ theme }) => theme.neutral_700};
+    }
   }
   .formitem-input {
     border-radius: 4px;
   }
   .error {
-    border-color: ${({ theme }) => theme.primary_600};
+    border-color: ${({ theme }) => theme.primary_600} !important;
+  }
+  .validation {
+    margin-bottom: 0;
+    margin-top: 6px;
+    text-align: end;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    color: ${({ theme }) => theme.primary_600};
   }
 `;
 export const GGReCaptcha = styled.div`

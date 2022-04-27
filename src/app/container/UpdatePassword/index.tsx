@@ -31,7 +31,7 @@ const UpdatePasswordContainer = () => {
           </Col>
           <Col span={12} className="login-form">
             <div className="form-content">
-              <h3 className="title">Xác thực</h3>
+              <h3 className="title">Reset password</h3>
               {/* Check FORM */}
               <form onSubmit={handleSubmit(onSubmit)}>
                 <FormItem>
@@ -39,31 +39,36 @@ const UpdatePasswordContainer = () => {
                     rules={{
                       required: {
                         value: true,
-                        message: 'Nhập mật khẩu',
+                        message: 'Enter new password',
                       },
                       minLength: {
                         value: 8,
                         message: 'Mật khẩu phải có ít nhất 8 ký tự',
                       },
                     }}
-                    name="password"
+                    name="new_password"
                     control={control}
                     render={({ field }) => (
                       <>
                         <div className="formitem-label">
-                          <label htmlFor="password">Password</label>
+                          <label htmlFor="new_password">New password</label>
                         </div>
                         <Input.Password
                           {...field}
                           className={
-                            errors?.password
+                            errors?.new_password
                               ? 'formitem-input error'
                               : 'formitem-input'
                           }
                           type="password"
-                          id="password"
-                          placeholder="Your password"
+                          id="new_password"
+                          placeholder="New password"
                         />
+                        {errors?.new_password && (
+                          <p className="validation">
+                            {errors?.new_password?.message}
+                          </p>
+                        )}
                       </>
                     )}
                   />
@@ -73,28 +78,39 @@ const UpdatePasswordContainer = () => {
                     rules={{
                       required: {
                         value: true,
-                        message: 'Nhập mật khẩu',
+                        message: 'Re-enter new password',
                       },
                       minLength: {
                         value: 8,
                         message: 'Mật khẩu phải có ít nhất 8 ký tự',
                       },
                     }}
-                    name="confirm"
+                    name="re_enter"
                     control={control}
                     render={({ field }) => (
                       <>
                         <div className="formitem-label">
-                          <label htmlFor="confirm">Confirm Password</label>
+                          <label htmlFor="re_enter">
+                            Re-enter new password
+                          </label>
                         </div>
                         <Input.Password
                           {...field}
-                          className="formitem-input"
+                          className={
+                            errors?.re_enter
+                              ? 'formitem-input error'
+                              : 'formitem-input'
+                          }
                           type="password"
-                          id="confirm"
+                          id="re_enter"
                           placeholder="Re-enter password"
                           onBlur={handleConfirmBlur}
                         />
+                        {errors?.re_enter && (
+                          <p className="validation">
+                            {errors?.re_enter?.message}
+                          </p>
+                        )}
                       </>
                     )}
                   />
@@ -106,7 +122,7 @@ const UpdatePasswordContainer = () => {
                   htmlType="submit"
                   disabled={isLoading}
                 >
-                  {isLoading ? 'Vui lòng đợi...' : 'Thay đổi'}
+                  {isLoading ? 'Loading...' : 'Submit'}
                 </Button>
               </form>
             </div>

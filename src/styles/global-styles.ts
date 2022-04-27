@@ -13,6 +13,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     /* padding-top: ${StyleConstants.NAV_BAR_HEIGHT}; */
     background-color: ${p => p.theme.background};
+    font-size: 1.6rem;
   }
 
   body.fontLoaded {
@@ -130,4 +131,14 @@ export const GlobalStyle = createGlobalStyle`
   }
   
 }
+.ant-input-affix-wrapper {
+    border: 1px solid ${({ theme }) => theme.neutral_500} !important;
+    &:hover {
+      border-color: ${({ theme }) => theme.secondary_600} !important;
+    }
+    &-focused {
+      box-shadow: none;
+      border-color: ${({ theme }) => theme.secondary_600} !important;
+    }
+  }
 `;

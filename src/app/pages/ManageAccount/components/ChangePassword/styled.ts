@@ -38,7 +38,7 @@ export const FormItem = styled.div`
     }
   }
   .error {
-    border-color: ${({ theme }) => theme.primary_600};
+    border-color: ${({ theme }) => theme.primary_600} !important;
   }
   .ant-input-affix-wrapper {
     height: 56px;

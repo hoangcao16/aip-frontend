@@ -90,7 +90,7 @@ export function App() {
             path="/forget"
             element={
               <PublicRoute>
-                <ForgetPasswordPage />
+                <UpdatePasswordPage />
               </PublicRoute>
             }
           />

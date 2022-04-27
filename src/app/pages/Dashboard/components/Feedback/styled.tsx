@@ -61,15 +61,23 @@ const Styled = {
           height: 56px;
           font-size: 16px;
           border-radius: 4px;
-          /* margin-top: 10px; */
+          &:hover {
+            border-color: ${({ theme }) => theme.secondary_600};
+          }
+          &:focus {
+            box-shadow: none;
+          }
         }
         .input-message {
           font-size: 16px;
+          /* &:hover {
+            border-color: ${({ theme }) => theme.secondary_600};
+          } */
+          /* &:focus {
+            box-shadow: none;
+          } */
           textarea {
             border: none;
-            &:focus {
-              box-shadow: none;
-            }
           }
         }
         .submit {

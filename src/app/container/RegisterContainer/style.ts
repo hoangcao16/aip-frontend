@@ -128,6 +128,10 @@ export const Container = styled.div`
 
   a {
     font-size: 14px;
+    color: ${({ theme }) => theme.secondary_600};
+    &:hover {
+      color: ${({ theme }) => theme.secondary_500};
+    }
   }
 
   .ant-checkbox-checked .ant-checkbox-inner {
@@ -146,15 +150,6 @@ export const Container = styled.div`
   .form-button {
     margin-bottom: 36px;
   }
-  .ant-input-affix-wrapper {
-    border: 1px solid ${({ theme }) => theme.neutral_500};
-    &:hover {
-      border-color: ${({ theme }) => theme.neutral_900};
-    }
-  }
-  .ant-input-affix-wrapper-focused {
-    box-shadow: 0 0 0 2px #1e262e33;
-  }
 `;
 export const FormItem = styled.div`
   /* margin-bottom: 24px; */
@@ -169,7 +164,7 @@ export const FormItem = styled.div`
     border-radius: 4px;
   }
   .error {
-    border-color: ${({ theme }) => theme.primary_600};
+    border-color: ${({ theme }) => theme.primary_600} !important;
   }
 `;
 export const GGReCaptcha = styled.div`

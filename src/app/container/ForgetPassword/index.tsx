@@ -43,9 +43,12 @@ const ForgetPasswordContainer = () => {
                 <FormItem>
                   <Controller
                     rules={{
-                      required: {
-                        value: true,
-                        message: 'Nhập địa chỉ E-mail!',
+                      required: 'Enter your email address',
+                      pattern: {
+                        value:
+                          /^[a-zA-Z0-9]+([\._-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+([\_-]?[a-zA-Z0-9]+)*(\.[a-zA-Z]{2,4}){1,2}$/,
+                        message:
+                          'Your email is not valid, please check it again!',
                       },
                     }}
                     name="email"
@@ -67,6 +70,9 @@ const ForgetPasswordContainer = () => {
                           id="email"
                           placeholder="Address your email"
                         />
+                        {errors?.email && (
+                          <p className="validation">{errors?.email?.message}</p>
+                        )}
                       </>
                     )}
                   />

@@ -107,7 +107,7 @@ export const Container = styled.div`
       border-color: #a52022;
     }
     font-weight: 600;
-    margin-top: 36px;
+    margin-top: 16px;
   }
   .ant-input {
     height: 56px;
@@ -145,30 +145,31 @@ export const Container = styled.div`
   .form-button {
     margin-bottom: 36px;
   }
-  .ant-input-affix-wrapper {
-    border: 1px solid ${({ theme }) => theme.neutral_500};
-    &:hover {
-      border-color: ${({ theme }) => theme.neutral_900};
-    }
-  }
-  .ant-input-affix-wrapper-focused {
-    box-shadow: 0 0 0 2px #1e262e33;
-  }
 `;
 export const FormItem = styled.div`
-  /* margin-bottom: 24px; */
+  margin-bottom: 24px;
   .formitem-label {
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 20px;
-    margin: 12px 0px;
-    color: ${({ theme }) => theme.neutral_700};
+    margin-bottom: 12px;
+    label {
+      font-size: 14px;
+      line-height: 20px;
+      margin: 12px 0px;
+      color: ${({ theme }) => theme.neutral_700};
+    }
   }
   .formitem-input {
     border-radius: 4px;
   }
   .error {
-    border-color: ${({ theme }) => theme.primary_600};
+    border-color: ${({ theme }) => theme.primary_600} !important;
+  }
+  .validation {
+    margin-bottom: 0;
+    margin-top: 6px;
+    text-align: end;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    color: ${({ theme }) => theme.primary_600};
   }
 `;
 export const GGReCaptcha = styled.div`
