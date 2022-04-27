@@ -6,6 +6,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     height: 100%;
     width: 100%;
+    font-size: 10px;
   }
 
   body {
@@ -21,7 +22,7 @@ export const GlobalStyle = createGlobalStyle`
   p,
   label,span {
     line-height: 24px;
-    font-size: 16px;
+    font-size: 1.6rem;
   }
 
   input, select, button {
@@ -30,8 +31,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .icon {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2.4rem;
+    height: 2.4rem;
   }
   .carousel.carousel-slider {
     background-color: ${({ theme }) => theme.neutral_200};

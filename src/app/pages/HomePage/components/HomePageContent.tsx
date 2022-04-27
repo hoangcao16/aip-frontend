@@ -8,8 +8,11 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import { CheckOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
 import Styled from './styled';
+import { useNavigate } from 'react-router-dom';
 
 const HomePageContent = (props: any) => {
+  const token = localStorage.getItem('access_token');
+  const navigate = useNavigate();
   const listOption = [
     'Verify document with near-perfect accuracy',
     'Recognize customers based on their selfies and ID photos',
@@ -47,7 +50,14 @@ const HomePageContent = (props: any) => {
               </h3>
               <div className="info__desc">
                 <p>Fast, secure, easy, instantaneous customer onboarding.</p>
-                <Button size="large" className="info__btn">
+                <Button
+                  size="large"
+                  className="info__btn"
+                  onClick={() => {
+                    token ? navigate('/dashboard') : navigate('/login');
+                    localStorage.setItem('tab_dashboard', 'Try demo');
+                  }}
+                >
                   Try now
                 </Button>
               </div>
@@ -118,7 +128,14 @@ const HomePageContent = (props: any) => {
                 <h3 className="sample__title">
                   Let’s get started with our sample!
                 </h3>
-                <Button size="large" className="sample__btn">
+                <Button
+                  size="large"
+                  className="sample__btn"
+                  onClick={() => {
+                    token ? navigate('/dashboard') : navigate('/login');
+                    localStorage.setItem('tab_dashboard', 'Try demo');
+                  }}
+                >
                   Try now
                 </Button>
               </div>

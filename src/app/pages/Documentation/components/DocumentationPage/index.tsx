@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CustomTabs from 'app/components/Tabs/CustomTabs';
 import IntegrationGuide from '../IntegrationGuide';
 import { Container } from './styled';
@@ -12,10 +12,15 @@ const tabDocumentation = [
 ];
 
 const DocumentationPage = () => {
+  const [keyTabs, setKeyTabs] = useState('Integration Guide');
   return (
     <Container>
       <div className="documentation">
-        <CustomTabs dataTabs={tabDocumentation} />
+        <CustomTabs
+          dataTabs={tabDocumentation}
+          keyTabs={keyTabs}
+          onTabClick={(key: string) => setKeyTabs(key)}
+        />
       </div>
     </Container>
   );

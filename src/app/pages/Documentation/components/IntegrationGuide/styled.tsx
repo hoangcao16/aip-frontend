@@ -5,16 +5,16 @@ const Styled = {
     .scroll-layout-guide {
       padding-right: 50px;
       h1 {
-        font-size: 28px;
+        font-size: 2.8rem;
         font-weight: 600;
-        line-height: 40px;
+        line-height: 4rem;
         color: ${({ theme }) => theme.neutral_900};
         margin-bottom: 20px;
         margin-top: 40px;
       }
       h2 {
-        font-size: 18px;
-        line-height: 28px;
+        font-size: 1.8rem;
+        line-height: 2.8rem;
         font-weight: 700;
         margin: 0;
         color: ${({ theme }) => theme.neutral_900};
