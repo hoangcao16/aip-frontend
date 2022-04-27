@@ -30,7 +30,7 @@ function HeaderDashboard() {
         <Col span={2}>
           <div className="user">
             <Link to={'/manage'}>
-              <span>{name.user.full_name}</span> <UserOutlined />
+              <span>{name?.user?.full_name}</span> <UserOutlined />
             </Link>
           </div>
         </Col>

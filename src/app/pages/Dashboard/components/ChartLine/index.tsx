@@ -47,7 +47,11 @@ function ChartLine() {
     },
     smooth: true,
   };
-  return <Line {...config} />;
+  return (
+    <div className="chart_line">
+      <Line {...config} />
+    </div>
+  );
 }
 
 export default ChartLine;
