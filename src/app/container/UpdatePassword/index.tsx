@@ -2,10 +2,15 @@ import { Container, FormItem } from './style';
 import { Input, Button, Row, Col } from 'antd';
 import BG_VIDEO from 'app/assets/images/imagesGuide/bg_video.mp4';
 import LOGO_LOGIN from 'app/assets/images/imagesGuide/logo-login.png';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useForm, Controller } from 'react-hook-form';
 import { selectUpdatepassword } from 'app/container/UpdatePassword/slice/selectors';
+import { useParams } from 'react-router-dom';
+import { useUpdatepasswordSlice } from './slice';
 const UpdatePasswordContainer = () => {
+  const dispatch = useDispatch();
+  const { actions } = useUpdatepasswordSlice();
+  let { id } = useParams();
   const { isLoading } = useSelector(selectUpdatepassword);
   const {
     control,
@@ -13,7 +18,13 @@ const UpdatePasswordContainer = () => {
     formState: { errors },
   } = useForm();
   // submit form
-  const onSubmit = data => {};
+  const onSubmit = data => {
+    const dataSend = {
+      ...data,
+      id,
+    };
+    dispatch(actions.updatePasswordRequest(dataSend));
+  };
   const handleConfirmBlur = (e: any) => {
     // setConfirmDirty(confirmDirty || !!value);
   };
