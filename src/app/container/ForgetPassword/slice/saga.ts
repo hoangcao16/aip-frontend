@@ -5,9 +5,9 @@ import {
   NotificationSuccess,
   NotificationError,
 } from 'app/components/Notification/Notification';
-function* handleRegister(action) {
+function* handleForgetPassword(action) {
   try {
-    const response = yield call(authService.register, action.payload);
+    const response = yield call(authService.forget, action.payload);
     if (response.data.rc.code === 0) {
       NotificationSuccess('Send Email Successfully', response.data.rc.desc);
       yield put(actions.forgetPasswordSuccess(response.data));
@@ -20,10 +20,10 @@ function* handleRegister(action) {
   }
 }
 
-function* watchRegister() {
-  yield takeEvery(actions.forgetPasswordRequest, handleRegister);
+function* watchForgetPassword() {
+  yield takeEvery(actions.forgetPasswordRequest, handleForgetPassword);
 }
 
 export function* forgetpasswordSaga() {
-  yield all([watchRegister()]);
+  yield all([watchForgetPassword()]);
 }

@@ -5,9 +5,9 @@ import {
   NotificationSuccess,
   NotificationError,
 } from 'app/components/Notification/Notification';
-function* handleRegister(action) {
+function* handleUpdatePassword(action) {
   try {
-    const response = yield call(authService.register, action.payload);
+    const response = yield call(authService.updatePassword, action.payload);
     if (response.data.rc.code === 0) {
       NotificationSuccess(
         'Update Password Successfully',
@@ -23,10 +23,10 @@ function* handleRegister(action) {
   }
 }
 
-function* watchRegister() {
-  yield takeEvery(actions.updatePasswordRequest, handleRegister);
+function* watchUpdatePassword() {
+  yield takeEvery(actions.updatePasswordRequest, handleUpdatePassword);
 }
 
 export function* updatepasswordSaga() {
-  yield all([watchRegister()]);
+  yield all([watchUpdatePassword()]);
 }
