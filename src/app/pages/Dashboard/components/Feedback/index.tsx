@@ -12,11 +12,7 @@ const defaultValues = {
 const Feedback = () => {
   const dispatch = useDispatch();
   const { actions } = useFeedbackSlice();
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ defaultValues });
+  const { control, handleSubmit } = useForm({ defaultValues });
   // submit form
   const onSubmit = data => {
     dispatch(actions.feedbackRequest(data));
@@ -70,6 +66,8 @@ const Feedback = () => {
                     className="input-message"
                     placeholder="Your message"
                     autoSize={{ minRows: 7, maxRows: 7 }}
+                    showCount
+                    maxLength={3000}
                     {...field}
                   />
                 </>

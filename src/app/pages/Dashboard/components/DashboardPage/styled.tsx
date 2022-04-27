@@ -12,6 +12,7 @@ const Styled = {
       }
       h2 {
         margin-top: 30px;
+        margin-bottom: 24px;
       }
       .ant-card-body {
         padding: 16px;
@@ -37,6 +38,7 @@ const Styled = {
       }
     }
     .chart-table {
+      margin-top: 36px;
       .ant-table-column-title {
         font-size: 14px;
         font-weight: 600;
@@ -56,14 +58,17 @@ const Styled = {
       }
     }
     .chart {
-      margin-top: 20px;
+      margin-top: 22px;
       .ant-tabs-nav {
         width: 100% !important;
         padding: 0 !important;
-        margin-bottom: 35px;
+        margin-bottom: 0px;
         &::before {
           border-bottom: 0;
         }
+      }
+      .chart_line {
+        margin-top: 80px;
       }
       .ant-tabs-tab {
         padding: 2px 0;

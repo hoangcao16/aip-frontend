@@ -32,7 +32,9 @@ const ActiveAccountContainer = () => {
             </div>
           </Col>
           <Col span={12} className="login-form">
-            <h1>Active Account</h1>
+            <div className="form-content">
+              <h3 className="title">Active Account</h3>
+            </div>
           </Col>
         </Row>
       </div>
