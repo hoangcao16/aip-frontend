@@ -5,9 +5,12 @@ import BG_VIDEO from 'app/assets/images/imagesGuide/bg_video.mp4';
 import LOGO_LOGIN from 'app/assets/images/imagesGuide/logo-login.png';
 import { useForm, Controller } from 'react-hook-form';
 import { selectForgetpassword } from './slice/selectors';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useForgetpasswordSlice } from './slice';
 const ForgetPasswordContainer = () => {
+  const dispatch = useDispatch();
   const { isLoading } = useSelector(selectForgetpassword);
+  const { actions } = useForgetpasswordSlice();
   const {
     control,
     handleSubmit,
@@ -15,7 +18,7 @@ const ForgetPasswordContainer = () => {
   } = useForm();
   // submit form
   const onSubmit = data => {
-    // dispatch(actions.registerRequest(sendData));
+    dispatch(actions.forgetPasswordRequest(data));
   };
   return (
     <Container>
