@@ -27,8 +27,7 @@ const RegisterContainer = () => {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
   const { actions } = useAuthregisterSlice();
   const [recaptcha_response, setRecaptcha]: any = useState('');
-
-  console.log(recaptchaRef);
+  const [isCheckbox, setIsCheckbox] = useState(false);
 
   const {
     control,
@@ -57,7 +56,7 @@ const RegisterContainer = () => {
       <div className="loginContent">
         <Row style={{ height: '100%' }}>
           <Col span={12} className="login-logo">
-            <div>
+            <div className="logo-img">
               <img src={LOGO_LOGIN} alt="logo" />
             </div>
           </Col>
@@ -252,7 +251,7 @@ const RegisterContainer = () => {
                     )}
                   />
                 </FormItem>
-                <Checkbox>
+                <Checkbox onChange={e => setIsCheckbox(e.target.checked)}>
                   I read & agreed with Terms and Privacy Policy
                 </Checkbox>
                 <FormItem>
@@ -288,10 +287,10 @@ const RegisterContainer = () => {
                   block={true}
                   type="primary"
                   htmlType="submit"
-                  disabled={isLoading}
+                  disabled={isLoading || !isCheckbox}
                   className="form-button"
                 >
-                  {isLoading ? 'Vui lòng đợi...' : 'Submit'}
+                  {isLoading ? 'Please wait...' : 'Submit'}
                 </Button>
                 <div
                   style={{

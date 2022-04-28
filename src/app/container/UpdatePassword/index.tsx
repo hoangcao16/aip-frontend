@@ -48,7 +48,7 @@ const UpdatePasswordContainer = () => {
       <div className="loginContent">
         <Row style={{ height: '100%' }}>
           <Col span={12} className="login-logo">
-            <div>
+            <div className="logo-img">
               <img src={LOGO_LOGIN} alt="logo" />
             </div>
           </Col>
@@ -150,7 +150,7 @@ const UpdatePasswordContainer = () => {
                   htmlType="submit"
                   disabled={isLoading}
                 >
-                  {isLoading ? 'Loading...' : 'Submit'}
+                  {isLoading ? 'Please wait...' : 'Submit'}
                 </Button>
               </form>
             </div>

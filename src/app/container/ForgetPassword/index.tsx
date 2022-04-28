@@ -28,7 +28,7 @@ const ForgetPasswordContainer = () => {
       <div className="loginContent">
         <Row style={{ height: '100%' }}>
           <Col span={12} className="login-logo">
-            <div>
+            <div className="logo-img">
               <img src={LOGO_LOGIN} alt="logo" />
             </div>
           </Col>
@@ -88,7 +88,7 @@ const ForgetPasswordContainer = () => {
                     htmlType="submit"
                     disabled={isLoading}
                   >
-                    {isLoading ? 'Vui lòng đợi...' : 'Send request'}
+                    {isLoading ? 'Please wait...' : 'Send request'}
                   </Button>
                 </Form.Item>
                 <span>

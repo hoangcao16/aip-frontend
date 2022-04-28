@@ -13,7 +13,7 @@ const Styled = {
       .ant-alert-warning {
         background-color: transparent;
         border: 0;
-        width: 41%;
+        width: 50%;
         padding: 0;
         padding-bottom: 0;
         margin-bottom: 68px;
