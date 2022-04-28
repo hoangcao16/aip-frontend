@@ -75,7 +75,7 @@ const PersonalInformation = () => {
                     <label htmlFor="phone">Phone number</label>
                   </div>
                   <PhoneInput
-                    defaultCountry="RU"
+                    defaultCountry="VN"
                     value={phone}
                     onChange={() => setPhone}
                   />

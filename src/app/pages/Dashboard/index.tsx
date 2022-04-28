@@ -23,7 +23,7 @@ const Container = styled.div`
   }
 `;
 
-const tabDasboard = [
+const tabDashboard = [
   {
     tab: 'Dashboard',
     component: <DashboardPage />,
@@ -39,10 +39,18 @@ const tabDasboard = [
 ];
 
 const Dashboard = () => {
+  let keyTabs: string = localStorage.getItem('tab_dashboard') || 'Dashboard';
+  const onTabClick = key => {
+    localStorage.setItem('tab_dashboard', key);
+  };
   return (
     <Container>
       <HeaderDashboard />
-      <CustomTabs dataTabs={tabDasboard} />
+      <CustomTabs
+        dataTabs={tabDashboard}
+        keyTabs={keyTabs}
+        onTabClick={onTabClick}
+      />
     </Container>
   );
 };

@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useForm, Controller } from 'react-hook-form';
 import { selectAuthlogin } from 'app/container/LoginContainer/slice/selectors';
 import { useAuthloginSlice } from 'app/container/LoginContainer/slice';
+// import { P } from '@antv/g2plot';
 const LoginContainer = () => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
@@ -47,7 +48,7 @@ const LoginContainer = () => {
                   <FormItem>
                     <Controller
                       rules={{
-                        required: true,
+                        required: 'Enter username',
                       }}
                       name="username"
                       control={control}
@@ -68,6 +69,11 @@ const LoginContainer = () => {
                             id="username"
                             placeholder="User name"
                           />
+                          {errors?.username && (
+                            <p className="validation">
+                              {errors?.username?.message}
+                            </p>
+                          )}
                         </>
                       )}
                     />
@@ -75,7 +81,7 @@ const LoginContainer = () => {
                   <FormItem>
                     <Controller
                       rules={{
-                        required: true,
+                        required: 'Enter password',
                       }}
                       name="password"
                       control={control}
@@ -102,6 +108,11 @@ const LoginContainer = () => {
                             id="password"
                             placeholder="Your password"
                           />
+                          {errors?.password && (
+                            <p className="validation">
+                              {errors?.password?.message}
+                            </p>
+                          )}
                         </>
                       )}
                     />

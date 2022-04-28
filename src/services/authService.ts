@@ -48,7 +48,8 @@ export const authService = {
     return (
       localStorage.removeItem('access_token'),
       localStorage.removeItem('user'),
-      localStorage.setItem('current', 'feature')
+      localStorage.setItem('current', 'feature'),
+      localStorage.setItem('tab_dashboard', 'Dashboard')
     );
   },
   setAccessToken(token: string) {

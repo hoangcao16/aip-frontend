@@ -87,7 +87,6 @@ const Styled = {
           }
           &:hover {
             background-color: ${({ theme }) => theme.primary_700};
-            color
             border: 0;
           }
         }

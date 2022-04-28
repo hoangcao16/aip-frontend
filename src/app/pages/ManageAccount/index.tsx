@@ -6,6 +6,7 @@ import { Modal } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { authService } from 'services/authService';
 import styled from 'styled-components';
+import { useState } from 'react';
 
 const Container = styled.div`
   .ant-tabs-nav {
@@ -33,6 +34,7 @@ const tabManage = [
 
 const ManageAccount = () => {
   const navigate = useNavigate();
+  const [keyTabs, setKeyTabs] = useState('Personal information');
   function confirm() {
     Modal.confirm({
       title: 'Do you want to log out?',
@@ -49,7 +51,12 @@ const ManageAccount = () => {
   return (
     <Container>
       <HeaderDashboard />
-      <CustomTabs dataTabs={tabManage} onLogout={confirm} />
+      <CustomTabs
+        dataTabs={tabManage}
+        onLogout={confirm}
+        keyTabs={keyTabs}
+        onTabClick={(key: string) => setKeyTabs(key)}
+      />
     </Container>
   );
 };

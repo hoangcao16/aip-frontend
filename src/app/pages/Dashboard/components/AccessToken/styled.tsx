@@ -8,6 +8,7 @@ const Styled = {
         line-height: 40px;
         color: ${({ theme }) => theme.neutral_900};
         font-weight: 600;
+        margin-top: 30px;
       }
       .ant-alert-warning {
         background-color: transparent;

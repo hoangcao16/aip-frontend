@@ -6,18 +6,19 @@ import Styled from './styled';
 const { TabPane } = Tabs;
 
 function CustomTabs(props: any) {
-  const { dataTabs, onLogout } = props;
+  const { dataTabs, onLogout, onTabClick, keyTabs } = props;
 
   return (
     <Styled.CustomTabs>
       <div className="custom-tabs">
         <Tabs
           tabPosition={'left'}
-          defaultActiveKey="Integration Guide"
+          defaultActiveKey={keyTabs}
           onTabClick={(key: any) => {
             if (key === 'Logout') {
               onLogout();
             }
+            onTabClick(key);
           }}
         >
           {dataTabs.map((item: any) => (

@@ -6,12 +6,14 @@ export const GlobalStyle = createGlobalStyle`
   body {
     height: 100%;
     width: 100%;
+    font-size: 10px;
   }
 
   body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     /* padding-top: ${StyleConstants.NAV_BAR_HEIGHT}; */
     background-color: ${p => p.theme.background};
+    font-size: 1.6rem;
   }
 
   body.fontLoaded {
@@ -21,7 +23,7 @@ export const GlobalStyle = createGlobalStyle`
   p,
   label,span {
     line-height: 24px;
-    font-size: 16px;
+    font-size: 1.6rem;
   }
 
   input, select, button {
@@ -30,8 +32,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .icon {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2.4rem;
+    height: 2.4rem;
   }
   .carousel.carousel-slider {
     background-color: ${({ theme }) => theme.neutral_200};
@@ -128,5 +130,31 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
   
+}
+.ant-input-affix-wrapper {
+    border: 1px solid ${({ theme }) => theme.neutral_500} !important;
+    &:hover {
+      border-color: ${({ theme }) => theme.secondary_600} !important;
+    }
+    &-focused {
+      box-shadow: none;
+      border-color: ${({ theme }) => theme.secondary_600} !important;
+    }
+  }
+.ant-tooltip {
+  min-width: 300px;
+  border-radius: 14px;
+  .ant-tooltip-inner {
+    padding: 16px;
+    ul {
+      margin: 0;
+      padding: 0;
+      padding-left: 16px;
+    }
+    li {
+      font-size: 1.4rem;
+      line-height: 2rem;
+    }
+  }
 }
 `;
