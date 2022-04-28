@@ -37,7 +37,7 @@ const LoginContainer = () => {
         <div className="loginContent">
           <Row style={{ height: '100%' }}>
             <Col span={12} className="login-logo">
-              <div>
+              <div className="logo-img">
                 <img src={LOGO_LOGIN} alt="logo" />
               </div>
             </Col>
@@ -124,7 +124,7 @@ const LoginContainer = () => {
                     disabled={isLoading}
                     className="form-button"
                   >
-                    {isLoading ? 'Vui lòng đợi...' : 'Login now'}
+                    {isLoading ? 'Please wait...' : 'Login now'}
                   </Button>
 
                   <p>

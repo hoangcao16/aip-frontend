@@ -47,13 +47,16 @@ export const FormItem = styled.div`
   .PhoneInput {
     input {
       height: 56px;
+      padding: 10px;
       border-radius: 4px;
       border: 1px solid ${({ theme }) => theme.neutral_500};
+      &:hover {
+        border-color: ${({ theme }) => theme.secondary_600};
+      }
     }
     &--focus input {
       outline: 0;
-      border-color: #40a9ff;
-      box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+      border-color: ${({ theme }) => theme.secondary_600};
     }
   }
 `;

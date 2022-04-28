@@ -43,9 +43,12 @@ export const Container = styled.div`
     }
     .login-logo {
       height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      .logo-img {
+        position: fixed;
+        top: 50%;
+        left: 25%;
+        transform: translate(-50%, -50%) !important;
+      }
     }
     .login-form {
       background-color: white;
@@ -98,18 +101,23 @@ export const Container = styled.div`
   .ant-btn-primary {
     color: #fff;
     height: 56px;
-    background-color: #c0292c;
-    border-color: #c0292c;
+    background-color: ${({ theme }) => theme.primary_600};
+    border-color: ${({ theme }) => theme.primary_600};
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
     -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
     &:hover {
-      background-color: #a52022;
-      border-color: #a52022;
+      background-color: ${({ theme }) => theme.primary_700};
+      border-color: ${({ theme }) => theme.primary_700};
     }
     font-weight: 600;
     margin-top: 36px;
-    margin-bottom: 16px !important;
+    margin-bottom: 16px;
+  }
+  .ant-btn-primary[disabled] {
+    background-color: ${({ theme }) => theme.neutral_200};
+    border-color: ${({ theme }) => theme.neutral_200};
+    color: ${({ theme }) => theme.neutral_500};
   }
   .ant-input {
     height: 56px;
@@ -193,6 +201,7 @@ export const FormItem = styled.div`
   .PhoneInput {
     input {
       height: 56px;
+      padding: 10px;
       border-radius: 4px;
       border: 1px solid ${({ theme }) => theme.neutral_500};
       &:hover {
@@ -202,7 +211,6 @@ export const FormItem = styled.div`
     &--focus input {
       outline: 0;
       border-color: ${({ theme }) => theme.secondary_600};
-      /* box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2); */
     }
   }
 `;
