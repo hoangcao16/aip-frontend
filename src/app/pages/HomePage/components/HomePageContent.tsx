@@ -42,7 +42,7 @@ const HomePageContent = (props: any) => {
     <Styled.HomePage>
       <div className="homepage">
         <Row justify="center">
-          <Col span={19}>
+          <Col xs={22} lg={21} xl={19}>
             <div className="info">
               <div className="line"></div>
               <h3 className="info__title">
@@ -66,7 +66,7 @@ const HomePageContent = (props: any) => {
         </Row>
         {/* accuracy */}
         <Row justify="center">
-          <Col span={19}>
+          <Col xs={22} lg={21} xl={19}>
             <div className="accuracy">
               <div>
                 <img src={IMAGE_ACCURACY} alt="img" />
@@ -81,15 +81,15 @@ const HomePageContent = (props: any) => {
         <div className="line-full"></div>
         {/* option */}
         <Row justify="center">
-          <Col span={19}>
+          <Col xs={22} lg={21} xl={19}>
             <div className="option">
               <div className="line"></div>
               <h3 className="option__title">Why we are the best option?</h3>
-              <Row className="option__content">
-                <Col span={12}>
+              <Row className="option__content" justify="space-between">
+                <Col xs={12} md={10}>
                   <img src={IMAGE_OPTION} alt="img" />
                 </Col>
-                <Col span={12}>
+                <Col xs={24} md={12}>
                   <div className="option__desc">
                     <div className="option__heading">
                       <span>Why Choose Us</span>
@@ -121,7 +121,7 @@ const HomePageContent = (props: any) => {
         </Row>
         {/* sample */}
         <Row justify="center">
-          <Col span={19}>
+          <Col xs={22} lg={21} xl={19}>
             <div className="sample">
               <div className="line"></div>
               <div className="sample__header">
@@ -140,7 +140,7 @@ const HomePageContent = (props: any) => {
                 </Button>
               </div>
               <Row className="sample__content">
-                <Col span={12}>
+                <Col xs={24} md={12}>
                   <div className="sample__carousel">
                     <Carousel
                       infiniteLoop
@@ -178,7 +178,7 @@ const HomePageContent = (props: any) => {
                     </Carousel>
                   </div>
                 </Col>
-                <Col span={12}>
+                <Col xs={24} md={12}>
                   <div className="sample__code">
                     <p className="result-title">Result code</p>
                     <pre>{JSON.stringify(data, null, 2)}</pre>

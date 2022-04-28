@@ -14,22 +14,17 @@ function Footer() {
     <Styled.Footer>
       <div className="footer">
         <Row justify="center" style={{ height: '100%' }}>
-          <Col span={9}>
+          <Col xs={22} md={9}>
             <div className="logo">
               <img
                 src={LOGO}
                 alt="logo"
                 className="logo__image"
-                style={{ height: '18px' }}
+                style={{ height: '1.8rem' }}
               />
-              <p className="description">
-                OurStudio is a digital agency UI / UX Design and Website
-                Development located in Ohio, United States of America
-              </p>
-              <p className="copyright">Copyright @2022</p>
             </div>
           </Col>
-          <Col span={5}>
+          <Col xs={22} sm={12} md={7} xl={5}>
             <div className="contact">
               <h2 className="contact__title">Contact</h2>
               <div className="contact__content">
@@ -51,7 +46,7 @@ function Footer() {
               </div>
             </div>
           </Col>
-          <Col span={5}>
+          <Col xs={22} sm={10} md={6} lg={5}>
             <div className="terms">
               <h2 className="terms__title">Terms</h2>
               <div>
@@ -60,6 +55,11 @@ function Footer() {
                 <p className="terms__item">Conditions of payment menthod</p>
               </div>
             </div>
+          </Col>
+        </Row>
+        <Row justify="center">
+          <Col xs={22} lg={21} xl={19}>
+            <p className="copyright">Copyright @2022</p>
           </Col>
         </Row>
       </div>

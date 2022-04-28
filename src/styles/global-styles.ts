@@ -1,3 +1,4 @@
+import { media } from './media';
 import { createGlobalStyle } from 'styled-components';
 import { StyleConstants } from './StyleConstants';
 /* istanbul ignore next */
@@ -6,6 +7,8 @@ export const GlobalStyle = createGlobalStyle`
   body {
     height: 100%;
     width: 100%;
+  }
+  html {
     font-size: 10px;
   }
 
@@ -157,4 +160,32 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 }
+
+@media screen and (max-width: 1279px) {
+  html {
+    font-size: 9px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  html {
+    font-size: 8.5px;
+  }
+}
+@media screen and (max-width: 767px) {
+  html {
+    font-size: 8.6px;
+  }
+}
+@media screen and (max-width: 575px) {
+  html {
+    font-size: 7.5px;
+  }
+}
+@media screen and (max-width: 400px) {
+  html {
+    font-size: 7px;
+  }
+}
+
 `;
