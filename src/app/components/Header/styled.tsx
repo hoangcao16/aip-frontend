@@ -6,10 +6,7 @@ const Styled = {
       // width: 1440px;
       height: 80px !important;
       margin: 0 auto;
-      display: flex;
       margin-left: auto;
-      text-align: center;
-      justify-content: center;
       box-shadow: 0px 2px 20px 0px #0000001a;
       position: fixed;
       left: 0;
@@ -32,9 +29,10 @@ const Styled = {
           vertical-align: baseline;
           border-bottom: 0;
           a {
-            font-size: 16px;
+            font-size: 1.6rem;
+            line-height: 2.4rem;
             color: ${({ theme }) => theme.neutral_600};
-            width: 100px;
+            width: 10rem;
             font-weight: 600;
           }
           &:after {
@@ -75,12 +73,12 @@ const Styled = {
         }
         .ant-btn {
           background-color: ${({ theme }) => theme.primary_600};
-          width: 110px;
-          height: 48px;
+          width: 11rem;
+          height: 4.8rem;
           border: 0;
           a {
             color: ${({ theme }) => theme.neutral_white};
-            font-size: 16px;
+            font-size: 1.6rem;
             &:hover {
               color: ${({ theme }) => theme.neutral_white};
             }
@@ -89,6 +87,14 @@ const Styled = {
             background-color: ${({ theme }) => theme.primary_700};
             border: 0;
           }
+        }
+      }
+      .menu-right {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        .anticon svg {
+          font-size: 2.3rem;
         }
       }
     }
