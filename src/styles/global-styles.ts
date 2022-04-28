@@ -141,4 +141,20 @@ export const GlobalStyle = createGlobalStyle`
       border-color: ${({ theme }) => theme.secondary_600} !important;
     }
   }
+.ant-tooltip {
+  min-width: 300px;
+  border-radius: 14px;
+  .ant-tooltip-inner {
+    padding: 16px;
+    ul {
+      margin: 0;
+      padding: 0;
+      padding-left: 16px;
+    }
+    li {
+      font-size: 1.4rem;
+      line-height: 2rem;
+    }
+  }
+}
 `;

@@ -162,6 +162,9 @@ export const FormItem = styled.div`
   }
   .error {
     border-color: ${({ theme }) => theme.primary_600} !important;
+    &:hover {
+      border-color: ${({ theme }) => theme.primary_600} !important;
+    }
   }
   .validation {
     margin-bottom: 0;
@@ -170,6 +173,14 @@ export const FormItem = styled.div`
     font-size: 1.4rem;
     line-height: 2rem;
     color: ${({ theme }) => theme.primary_600};
+
+    .anticon {
+      margin-left: 10px;
+      svg {
+        margin-top: -6px;
+        color: ${({ theme }) => theme.neutral_600};
+      }
+    }
   }
 `;
 export const GGReCaptcha = styled.div`

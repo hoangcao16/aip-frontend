@@ -1,7 +1,7 @@
 import BG_VIDEO from 'app/assets/images/imagesGuide/bg_video.mp4';
 import LOGO_LOGIN from 'app/assets/images/imagesGuide/logo-login.png';
 import { Container, FormItem, GGReCaptcha } from './style';
-import { Input, Button, Row, Col } from 'antd';
+import { Input, Button, Row, Col, Checkbox, Tooltip } from 'antd';
 import { Link } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,18 +9,36 @@ import { useRef, useState } from 'react';
 import { selectAuthregister } from 'app/container/RegisterContainer/slice/selectors';
 import { useAuthregisterSlice } from 'app/container/RegisterContainer/slice';
 import ReCAPTCHA from 'react-google-recaptcha';
+import PhoneInput from 'react-phone-number-input';
+import { InfoCircleFilled } from '@ant-design/icons';
+
+const text = (
+  <ul>
+    <li>Minimum 8 characters, Maximum 20 characters</li>
+    <li>Have at least 1 upper case character</li>
+    <li>Have at least 1 lower case character</li>
+    <li>Have at least 1 special character</li>
+  </ul>
+);
+
 const RegisterContainer = () => {
   const { isLoading } = useSelector(selectAuthregister);
   const dispatch = useDispatch();
   const recaptchaRef = useRef<ReCAPTCHA>(null);
   const { actions } = useAuthregisterSlice();
   const [recaptcha_response, setRecaptcha]: any = useState('');
+
+  console.log(recaptchaRef);
+
   const {
     control,
+    watch,
     handleSubmit,
     formState: { errors },
   } = useForm();
   // submit form
+  const [phone, setPhone] = useState('');
+
   const onSubmitRegister = data => {
     const sendData = {
       ...data,
@@ -112,9 +130,12 @@ const RegisterContainer = () => {
                 <FormItem>
                   <Controller
                     rules={{
-                      required: {
-                        value: true,
-                        message: 'Nhập địa chỉ E-mail!',
+                      required: 'Enter your email address',
+                      pattern: {
+                        value:
+                          /^[a-zA-Z0-9]+([_\.-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+([_-]?[a-zA-Z0-9]+)*(\.[a-zA-Z]{2,4}){1,2}$/,
+                        message:
+                          'Your email is not valid, please check it again!',
                       },
                     }}
                     name="email"
@@ -122,7 +143,17 @@ const RegisterContainer = () => {
                     render={({ field }) => (
                       <>
                         <div className="formitem-label">
-                          <label htmlFor="email">Email</label>
+                          <label htmlFor="email">
+                            Email address *{' '}
+                            <Tooltip
+                              placement="top"
+                              title={
+                                'Email address is your username to log-in in the future'
+                              }
+                            >
+                              <InfoCircleFilled />
+                            </Tooltip>
+                          </label>
                         </div>
                         <Input
                           {...field}
@@ -136,6 +167,7 @@ const RegisterContainer = () => {
                           id="email"
                           placeholder="Address your email"
                         />
+                        <p className="validation">{errors?.email?.message}</p>
                       </>
                     )}
                   />
@@ -145,11 +177,12 @@ const RegisterContainer = () => {
                     rules={{
                       required: {
                         value: true,
-                        message: 'Nhập mật khẩu',
+                        message: 'Enter password',
                       },
-                      minLength: {
-                        value: 8,
-                        message: 'Mật khẩu phải có ít nhất 8 ký tự',
+                      pattern: {
+                        value:
+                          /^(?=.*[0-9])(?=.*[!@#$%^&*<>?/_-])[a-zA-Z0-9!@#$%^&*<>?/_-]{8,20}$/,
+                        message: 'Password is invalid',
                       },
                     }}
                     name="password"
@@ -157,7 +190,12 @@ const RegisterContainer = () => {
                     render={({ field }) => (
                       <>
                         <div className="formitem-label">
-                          <label htmlFor="password">Password</label>
+                          <label htmlFor="password">
+                            Password *
+                            <Tooltip placement="top" title={text}>
+                              <InfoCircleFilled />
+                            </Tooltip>
+                          </label>
                         </div>
                         <Input.Password
                           {...field}
@@ -170,6 +208,9 @@ const RegisterContainer = () => {
                           id="password"
                           placeholder="Your password"
                         />
+                        <p className="validation">
+                          {errors?.password?.message}
+                        </p>
                       </>
                     )}
                   />
@@ -179,11 +220,12 @@ const RegisterContainer = () => {
                     rules={{
                       required: {
                         value: true,
-                        message: 'Nhập mật khẩu',
+                        message: 'Re-enter password',
                       },
-                      minLength: {
-                        value: 8,
-                        message: 'Mật khẩu phải có ít nhất 8 ký tự',
+                      validate: value => {
+                        if (watch('password') !== value) {
+                          return 'Your passwords do no match';
+                        }
                       },
                     }}
                     name="confirm"
@@ -191,15 +233,41 @@ const RegisterContainer = () => {
                     render={({ field }) => (
                       <>
                         <div className="formitem-label">
-                          <label htmlFor="confirm">Confirm Password</label>
+                          <label htmlFor="confirm">Re-enter password *</label>
                         </div>
                         <Input.Password
                           {...field}
-                          className="formitem-input"
+                          className={
+                            errors?.confirm
+                              ? 'formitem-input error'
+                              : 'formitem-input'
+                          }
                           type="password"
                           id="confirm"
                           placeholder="Re-enter password"
                           onBlur={handleConfirmBlur}
+                        />
+                        <p className="validation">{errors?.confirm?.message}</p>
+                      </>
+                    )}
+                  />
+                </FormItem>
+                <Checkbox>
+                  I read & agreed with Terms and Privacy Policy
+                </Checkbox>
+                <FormItem>
+                  <Controller
+                    name="phone"
+                    control={control}
+                    render={({ field }) => (
+                      <>
+                        <div className="formitem-label">
+                          <label htmlFor="confirm">Phone number</label>
+                        </div>
+                        <PhoneInput
+                          defaultCountry="VN"
+                          value={phone}
+                          onChange={() => setPhone}
                         />
                       </>
                     )}

@@ -49,7 +49,8 @@ export const Container = styled.div`
     }
     .login-form {
       background-color: white;
-      height: 100%;
+      /* height: 100%; */
+      padding-bottom: 100px;
     }
     .title {
       font-weight: 600;
@@ -61,7 +62,7 @@ export const Container = styled.div`
     .form-content {
       width: 62%;
       margin-left: 15%;
-      margin-top: 15%;
+      margin-top: 100px !important;
     }
   }
   .selectContent {
@@ -150,21 +151,59 @@ export const Container = styled.div`
   .form-button {
     margin-bottom: 36px;
   }
+  .ant-checkbox-wrapper {
+    margin-bottom: 24px;
+    margin-top: 10px;
+    span {
+      font-size: 14px;
+      line-height: 20px;
+      color: ${({ theme }) => theme.neutral_900};
+    }
+  }
 `;
 export const FormItem = styled.div`
-  /* margin-bottom: 24px; */
+  margin-bottom: 24px;
   .formitem-label {
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 20px;
-    margin: 12px 0px;
-    color: ${({ theme }) => theme.neutral_700};
+    margin-bottom: 12px;
+    label {
+      font-size: 14px;
+      line-height: 20px;
+      margin: 12px 0px;
+      color: ${({ theme }) => theme.neutral_700};
+      .anticon svg {
+        margin-left: 10px;
+        margin-top: -6px;
+      }
+    }
   }
   .formitem-input {
     border-radius: 4px;
   }
   .error {
     border-color: ${({ theme }) => theme.primary_600} !important;
+  }
+  .validation {
+    margin-bottom: 0;
+    margin-top: 6px;
+    text-align: end;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    color: ${({ theme }) => theme.primary_600};
+  }
+  .PhoneInput {
+    input {
+      height: 56px;
+      border-radius: 4px;
+      border: 1px solid ${({ theme }) => theme.neutral_500};
+      &:hover {
+        border-color: ${({ theme }) => theme.secondary_600};
+      }
+    }
+    &--focus input {
+      outline: 0;
+      border-color: ${({ theme }) => theme.secondary_600};
+      /* box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2); */
+    }
   }
 `;
 export const GGReCaptcha = styled.div`

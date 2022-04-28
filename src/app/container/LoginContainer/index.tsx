@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useForm, Controller } from 'react-hook-form';
 import { selectAuthlogin } from 'app/container/LoginContainer/slice/selectors';
 import { useAuthloginSlice } from 'app/container/LoginContainer/slice';
-import { P } from '@antv/g2plot';
+// import { P } from '@antv/g2plot';
 const LoginContainer = () => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
@@ -81,7 +81,7 @@ const LoginContainer = () => {
                   <FormItem>
                     <Controller
                       rules={{
-                        required: 'Incorrect password',
+                        required: 'Enter password',
                       }}
                       name="password"
                       control={control}
