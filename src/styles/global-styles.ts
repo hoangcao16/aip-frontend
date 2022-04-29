@@ -1,4 +1,4 @@
-import { media } from './media';
+// import { media } from './media';
 import { createGlobalStyle } from 'styled-components';
 import { StyleConstants } from './StyleConstants';
 /* istanbul ignore next */
@@ -161,6 +161,32 @@ export const GlobalStyle = createGlobalStyle`
   }
 }
 
+.ant-drawer-body {
+  .ant-menu.ant-menu-vertical {
+    border: 0 !important;
+  }
+  .ant-btn {
+    background-color: ${({ theme }) => theme.primary_600};
+    width: 11rem;
+    height: 4.8rem;
+    border: 0;
+    a {
+      color: ${({ theme }) => theme.neutral_white};
+      font-size: 1.6rem;
+      &:hover {
+        color: ${({ theme }) => theme.neutral_white};
+      }
+    }
+    &:hover {
+      background-color: ${({ theme }) => theme.primary_700};
+      border: 0;
+    }
+  }
+  .ant-menu-item-selected a {
+    color: ${({ theme }) => theme.neutral_900}
+  }
+}
+
 @media screen and (max-width: 1279px) {
   html {
     font-size: 9px;
@@ -180,6 +206,9 @@ export const GlobalStyle = createGlobalStyle`
 @media screen and (max-width: 575px) {
   html {
     font-size: 7.5px;
+  }
+  .ant-drawer-content-wrapper {
+    width: 60% !important;
   }
 }
 @media screen and (max-width: 400px) {

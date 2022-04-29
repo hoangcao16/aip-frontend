@@ -218,7 +218,7 @@ const Styled = {
           }
         }
       }
-      @media screen and (max-width: 1024px) {
+      @media screen and (max-width: 1023px) {
         .option {
           h4 {
             padding-right: 50px;
@@ -227,6 +227,14 @@ const Styled = {
         .info {
           &__title {
             width: 65%;
+          }
+        }
+        .accuracy {
+          &__box {
+            width: 38%;
+            height: 13rem;
+            bottom: 10%;
+            padding: 2.2rem 2rem;
           }
         }
       }
@@ -247,6 +255,10 @@ const Styled = {
             width: 45%;
             opacity: 0.9;
             z-index: 10;
+            height: 11rem;
+            padding: 1.8rem;
+            bottom: 14%;
+            left: 5%;
           }
         }
         .option {
@@ -275,16 +287,24 @@ const Styled = {
         }
         .accuracy {
           &__box {
-            width: 50%;
-            opacity: 0.9;
-            z-index: 10;
+            width: 48%;
             padding: 1.5rem;
-            left: 5%;
+            left: 3%;
+            height: 10.5rem;
+            bottom: 15%;
           }
         }
       }
-    }
-    @media screen and (max-width: 374px) {
+      @media screen and (max-width: 374px) {
+        .accuracy {
+          &__box {
+            width: 50%;
+            padding: 1rem;
+            height: 10rem;
+            bottom: 17%;
+          }
+        }
+      }
     }
   `,
 };

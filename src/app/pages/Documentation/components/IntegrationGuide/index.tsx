@@ -9,7 +9,7 @@ const IntegrationGuide = () => {
   return (
     <Styled.IntegrationGuide>
       <Row className="integration-guide">
-        <Col span={20}>
+        <Col xs={24} md={20}>
           <div id="scroll-layout-guide" className="scroll-layout-guide">
             <h1>Integration Guide</h1>
             <div>
@@ -103,7 +103,7 @@ const IntegrationGuide = () => {
             </div>
           </div>
         </Col>
-        <Col span={4}>
+        <Col xs={0} md={4}>
           <div>
             <Anchor affix={true} offsetTop={110}>
               <Link href="#request" title="Request" />
