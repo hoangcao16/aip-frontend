@@ -121,6 +121,7 @@ function Header() {
             onClose={() => setVisible(false)}
             visible={visible}
             closeIcon={<ArrowRightOutlined />}
+            width="50%"
           >
             <Menu onClick={handleClick} selectedKeys={[current]}>
               <Menu.Item key="feature">

@@ -5,32 +5,32 @@ const Styled = {
     .data {
       h2,
       h3 {
-        font-size: 28px;
-        line-height: 40px;
+        font-size: 2.8rem;
+        line-height: 4rem;
         font-weight: 600;
         color: ${({ theme }) => theme.neutral_900};
       }
       h2 {
-        margin-top: 30px;
-        margin-bottom: 24px;
+        margin-top: 3rem;
+        margin-bottom: 2.4rem;
       }
       .ant-card-body {
-        padding: 16px;
+        padding: 1.6rem;
       }
       .card-info {
         display: flex;
-        margin-top: 16px;
+        margin-top: 1.6rem;
       }
       span {
         border-radius: 50%;
-        width: 32px;
-        height: 32px;
+        width: 3.2rem;
+        height: 3.2rem;
       }
       p {
         color: ${({ theme }) => theme.neutral_900};
-        font-size: 14px;
-        line-height: 30px;
-        margin-left: 12px;
+        font-size: 1.4rem;
+        line-height: 3rem;
+        margin-left: 1.2rem;
       }
       .ant-card-bordered {
         border-color: ${({ theme }) => theme.neutral_300};
@@ -38,9 +38,10 @@ const Styled = {
       }
     }
     .chart-table {
-      margin-top: 36px;
+      margin-top: 3.6rem;
       .ant-table-column-title {
-        font-size: 14px;
+        font-size: 1.4rem;
+        line-height: 2rem;
         font-weight: 600;
         color: ${({ theme }) => theme.neutral_900};
       }
@@ -58,7 +59,8 @@ const Styled = {
       }
     }
     .chart {
-      margin-top: 22px;
+      margin-top: 2.2rem;
+      margin-bottom: 2rem;
       .ant-tabs-nav {
         width: 100% !important;
         padding: 0 !important;
@@ -68,7 +70,7 @@ const Styled = {
         }
       }
       .chart_line {
-        margin-top: 80px;
+        margin-top: 8rem;
       }
       .ant-tabs-tab {
         padding: 2px 0;
@@ -78,7 +80,7 @@ const Styled = {
         width: 0 !important;
       }
       .ant-tabs-nav-container {
-        margin-bottom: 60px;
+        margin-bottom: 6rem;
       }
 
       .ant-tabs-nav-list {
@@ -101,7 +103,7 @@ const Styled = {
         }
       }
       .ant-tabs-tab-btn {
-        min-width: 160px;
+        min-width: 15rem;
       }
       .ant-tabs .ant-tabs-nav .ant-tabs-ink-bar {
         &::after {
@@ -111,8 +113,8 @@ const Styled = {
       .ant-tabs-tab {
         margin: 0;
         color: ${({ theme }) => theme.neutral_600};
-        font-size: 14px;
-        line-height: 20px;
+        font-size: 1.4rem;
+        line-height: 2rem;
         &:first-child {
           border-right: 1px solid ${({ theme }) => theme.neutral_400} !important;
         }
@@ -124,6 +126,67 @@ const Styled = {
         border-left: 0;
         min-height: 300px !important;
         padding: 0px;
+      }
+    }
+
+    @media screen and (min-width: 1024px) {
+      .chart {
+        .chart_line .line {
+          height: 40rem !important;
+        }
+      }
+    }
+
+    @media screen and (max-width: 1439px) {
+      .data {
+        .ant-card-body {
+          height: 13.2rem;
+        }
+      }
+    }
+
+    @media screen and (max-width: 1279px) {
+      .data {
+        .ant-card-body {
+          padding: 1.4rem;
+        }
+      }
+    }
+    @media screen and (max-width: 1023px) {
+      .data {
+        .ant-card-bordered {
+          margin-bottom: 8px;
+        }
+      }
+      .chart {
+        .chart_line .line {
+          height: 30rem !important;
+        }
+        .ant-card-body {
+          padding: 1.8rem;
+        }
+        .chart_line {
+          margin-top: 6rem;
+        }
+      }
+    }
+    @media screen and (max-width: 767px) {
+      .chart {
+        .chart_line .line {
+          height: 25rem !important;
+        }
+        .ant-tabs-nav {
+          display: block;
+          .ant-select {
+            margin-top: 1rem;
+          }
+        }
+        .ant-card-body {
+          padding: 1.2rem;
+        }
+        .chart_line {
+          margin-top: 5rem;
+        }
       }
     }
   `,
