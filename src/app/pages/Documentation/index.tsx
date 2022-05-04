@@ -4,6 +4,7 @@ import Header from 'app/components/Header/Header';
 import CustomTabs from 'app/components/Tabs/CustomTabs';
 import IntegrationGuide from './components/IntegrationGuide';
 import styled from 'styled-components';
+import { Helmet } from 'react-helmet-async';
 
 export const Container = styled.div`
   .ant-tabs-tab-active {
@@ -23,20 +24,27 @@ const tabDocumentation = [
   { tab: 'Integration Guide', component: <IntegrationGuide /> },
 ];
 
-const Documentation = () => {
+export const Documentation = () => {
   const [keyTabs, setKeyTabs] = useState('API References');
 
   return (
-    <Container>
-      <Header />
-      <CustomTabs
-        dataTabs={tabDocumentation}
-        keyTabs={keyTabs}
-        onTabClick={(key: string) => setKeyTabs(key)}
-      />
-      <Footer />
-    </Container>
+    <>
+      <Helmet>
+        <title>Documentation</title>
+        <meta
+          name="description"
+          content="A Synodus application documentation"
+        />
+      </Helmet>
+      <Container>
+        <Header />
+        <CustomTabs
+          dataTabs={tabDocumentation}
+          keyTabs={keyTabs}
+          onTabClick={(key: string) => setKeyTabs(key)}
+        />
+        <Footer />
+      </Container>
+    </>
   );
 };
-
-export default Documentation;

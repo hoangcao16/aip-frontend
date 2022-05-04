@@ -9,6 +9,9 @@ const Styled = {
       font-weight: 600;
       color: ${({ theme }) => theme.neutral_900};
     }
+    .ant-tabs-tab + .ant-tabs-tab {
+      margin-left: 1rem;
+    }
     .tabs {
       .ant-tabs-nav {
         padding: 0px !important;
@@ -38,10 +41,10 @@ const Styled = {
       .remaining {
         display: flex;
         justify-content: space-between;
+        padding: 0.8rem;
         & > p {
           text-align: right !important;
           color: ${({ theme }) => theme.neutral_900};
-          padding: 0.8;
           span {
             color: ${({ theme }) => theme.secondary_600};
             font-weight: 600;
