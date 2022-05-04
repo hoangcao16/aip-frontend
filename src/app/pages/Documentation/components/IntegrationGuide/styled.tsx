@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const Styled = {
   IntegrationGuide: styled.div`
+    position: relative;
     .scroll-layout-guide {
       padding-right: 5rem;
       h1 {
@@ -23,6 +24,11 @@ const Styled = {
         color: ${({ theme }) => theme.neutral_900};
         margin-bottom: 6rem;
       }
+    }
+
+    .ant-anchor-wrapper {
+      position: fixed;
+      margin-top: 3rem;
     }
 
     .ant-anchor-link-title {

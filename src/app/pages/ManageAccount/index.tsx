@@ -16,6 +16,16 @@ const Container = styled.div`
   .ant-tabs-tab-active {
     background-color: ${({ theme }) => theme.neutral_white} !important;
   }
+  @media screen and (max-width: 767px) {
+    .ant-tabs-tab-btn {
+      padding-left: 0.3rem !important;
+    }
+  }
+  @media screen and (max-width: 575px) {
+    .ant-tabs-tab-btn {
+      padding-left: 0.5rem !important;
+    }
+  }
 `;
 
 const tabManage = [

@@ -21,6 +21,16 @@ const Container = styled.div`
   .ant-tabs-tab-active {
     background-color: ${({ theme }) => theme.neutral_white} !important;
   }
+  .ant-tabs .ant-tabs-tab-btn {
+    font-size: 1.4rem;
+    line-height: 2rem;
+  }
+  .ant-tabs-tab + .ant-tabs-tab {
+    margin-left: 1.5rem;
+  }
+  .ant-tabs-tab {
+    padding: 1.2rem 0;
+  }
 `;
 
 const tabDashboard = [

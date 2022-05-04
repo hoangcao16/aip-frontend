@@ -27,12 +27,12 @@ const ForgetPasswordContainer = () => {
       </div>
       <div className="loginContent">
         <Row style={{ height: '100%' }}>
-          <Col span={12} className="login-logo">
+          <Col xs={0} md={12} className="login-logo">
             <div className="logo-img">
               <img src={LOGO_LOGIN} alt="logo" />
             </div>
           </Col>
-          <Col span={12} className="login-form">
+          <Col xs={24} md={12} className="login-form">
             <div className="form-content">
               <h3 className="title" style={{ marginBottom: '16px' }}>
                 Reset your password

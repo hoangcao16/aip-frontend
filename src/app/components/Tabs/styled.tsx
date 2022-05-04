@@ -61,7 +61,7 @@ const Styled = {
         padding-left: 6rem;
         padding-top: 0px;
         padding-right: 6rem;
-        min-height: calc(100vh - 80px);
+        min-height: calc(100vh - 8rem);
 
         .ant-tabs-tabpane {
           padding: 0;
@@ -96,7 +96,7 @@ const Styled = {
           padding-right: 3rem;
         }
         .ant-tabs-nav {
-          width: 26% !important;
+          width: 27% !important;
         }
         .ant-tabs-left > .ant-tabs-nav .ant-tabs-tab {
           padding: 6px 1rem;
@@ -115,7 +115,7 @@ const Styled = {
           padding-right: 2rem;
         }
         .ant-tabs-nav {
-          width: 28% !important;
+          width: 29% !important;
         }
         .ant-tabs-left > .ant-tabs-nav .ant-tabs-tab {
           padding: 5px 1px;

@@ -3,9 +3,9 @@ import styled from 'styled-components';
 const Styled = {
   TryDemo: styled.div`
     h2 {
-      padding-top: 30px;
-      font-size: 28px;
-      line-height: 40px;
+      padding-top: 3rem;
+      font-size: 2.8rem;
+      line-height: 4rem;
       font-weight: 600;
       color: ${({ theme }) => theme.neutral_900};
     }
@@ -41,7 +41,7 @@ const Styled = {
         & > p {
           text-align: right !important;
           color: ${({ theme }) => theme.neutral_900};
-          padding: 8px;
+          padding: 0.8;
           span {
             color: ${({ theme }) => theme.secondary_600};
             font-weight: 600;
@@ -59,7 +59,7 @@ const Styled = {
       .remaining {
         text-align: right !important;
         color: ${({ theme }) => theme.secondary_900};
-        padding: 8px;
+        padding: 0.8rem;
         span {
           color: ${({ theme }) => theme.secondary_600};
           font-weight: 600;
@@ -67,7 +67,7 @@ const Styled = {
       }
     }
     .execute {
-      margin-top: 10px;
+      margin-top: 1rem;
       &__image {
         display: flex;
         flex-wrap: wrap;
@@ -75,7 +75,7 @@ const Styled = {
         gap: 4%;
       }
       &__button {
-        margin: 50px auto 0;
+        margin: 5rem auto 0;
         text-align: center;
         width: 45%;
       }
@@ -88,11 +88,11 @@ const Styled = {
       &__button,
       .passport-button {
         .ant-btn {
-          height: 56px;
-          width: 200px;
+          height: 5.6rem;
+          width: 20rem;
           span {
-            font-size: 18px;
-            line-height: 28px;
+            font-size: 1.8rem;
+            line-height: 2.8rem;
             font-weight: 700;
             color: $neutral-500;
           }
@@ -100,39 +100,40 @@ const Styled = {
       }
 
       .result {
-        margin-top: 30px;
+        margin-top: 3rem;
         .ant-card-bordered {
           border-color: ${({ theme }) => theme.neutral_400};
           border-radius: 4px;
         }
         .ant-card-head-title {
           font-weight: 700;
-          font-size: 18px;
-          line-height: 28px;
+          font-size: 1.8rem;
+          line-height: 2.8rem;
           color: ${({ theme }) => theme.neutral_900};
         }
         .ant-btn {
-          height: 36px;
+          /* height: 3.6rem; */
+          height: 100%;
           border: 2px solid ${({ theme }) => theme.secondary_600};
           color: ${({ theme }) => theme.secondary_600};
           span {
             font-weight: 600;
-            font-size: 14px;
-            line-height: 20px;
+            font-size: 1.4rem;
+            line-height: 2rem;
           }
           &:hover {
             background-color: ${({ theme }) => theme.secondary_100};
           }
         }
         .ant-card-body {
-          min-height: 300px;
+          min-height: 30rem;
           background-color: ${({ theme }) => theme.neutral_100};
           border-top: 1px solid ${({ theme }) => theme.neutral_400};
           margin-bottom: 1px;
           pre {
             font-weight: 400;
-            font-size: 14px;
-            line-height: 20px;
+            font-size: 1.4rem;
+            line-height: 2rem;
             color: ${({ theme }) => theme.neutral_800};
           }
 
@@ -142,8 +143,16 @@ const Styled = {
             left: 50%;
           }
           .ant-spin-lg .ant-spin-dot {
-            font-size: 36px;
+            font-size: 3.6rem;
           }
+        }
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      .execute {
+        &__image {
+          display: block;
         }
       }
     }

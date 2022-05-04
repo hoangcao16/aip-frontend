@@ -32,20 +32,24 @@ const Wrapper = styled.div`
   flex-direction: column;
   height: 100vh;
   width: 100vw;
+  img {
+    /* width: 100%; */
+  }
   p {
-    margin-top: 56px;
+    margin-top: 5.6rem;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 1.8rem;
     color: #404e5c;
   }
 
   .ant-btn {
-    margin-top: 56px;
+    margin-top: 5.6rem;
     background: #c0292c;
     color: white;
-    height: 56px;
-    width: 140px;
+    height: 5.6rem;
+    width: 14rem;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 1.4rem;
+    line-height: 2rem;
   }
 `;

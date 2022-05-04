@@ -105,7 +105,7 @@ const IntegrationGuide = () => {
         </Col>
         <Col xs={0} md={4}>
           <div>
-            <Anchor affix={true} offsetTop={110}>
+            <Anchor affix={false} offsetTop={100}>
               <Link href="#request" title="Request" />
               <Link href="#url" title="URL" />
               <Link href="#header" title="Header" />
