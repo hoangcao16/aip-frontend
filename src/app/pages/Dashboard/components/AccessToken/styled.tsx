@@ -74,6 +74,10 @@ const Styled = {
         }
         .anticon svg {
           font-size: 2.2rem;
+          color: ${({ theme }) => theme.neutral_600};
+        }
+        .password {
+          opacity: 0.5;
         }
       }
       &__access {

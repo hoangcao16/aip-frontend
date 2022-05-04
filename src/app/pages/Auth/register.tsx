@@ -6,7 +6,7 @@ import { selectAuthregister } from 'app/container/RegisterContainer/slice/select
 export function RegisterPage(props) {
   const { isLoading } = useSelector(selectAuthregister);
   useEffect(() => {
-    document.title = 'Đăng ký';
+    document.title = 'Register';
   }, []);
 
   return (
