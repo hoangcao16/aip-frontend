@@ -3,8 +3,7 @@ import styled from 'styled-components';
 const Styled = {
   HeaderDashboard: styled.div`
     .header-dasboard {
-      // width: 1440px;
-      height: 80px !important;
+      height: 8rem !important;
       margin: 0 auto;
       display: flex;
       margin-left: auto;
@@ -17,6 +16,9 @@ const Styled = {
         display: flex;
         align-self: center;
         padding-left: 2.5rem;
+        img {
+          width: 100%;
+        }
       }
       .ant-menu-horizontal {
         display: flex;

@@ -107,7 +107,7 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 .ant-modal-content {
-  padding: 24px;
+  padding: 2.4rem;
   .ant-modal-body {
     padding: 0;
   }
@@ -116,13 +116,14 @@ export const GlobalStyle = createGlobalStyle`
       display: none;
     }
     .ant-modal-confirm-title {
-      padding: 12px;
+      padding: 1.2rem;
       color: ${({ theme }) => theme.neutral_black};
       font-weight: 400;
+      font-size: 1.6rem;
     }
     .ant-btn {
-      height: 48px;
-      width: 96px;
+      height: 4.8rem;
+      width: 9.6rem;
     }
     .ant-btn-primary {
       background-color: ${({ theme }) => theme.primary_600};

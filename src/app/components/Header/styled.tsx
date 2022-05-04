@@ -4,7 +4,7 @@ const Styled = {
   Header: styled.div`
     .header {
       // width: 1440px;
-      height: 80px !important;
+      height: 8rem !important;
       margin: 0 auto;
       margin-left: auto;
       box-shadow: 0px 2px 20px 0px #0000001a;

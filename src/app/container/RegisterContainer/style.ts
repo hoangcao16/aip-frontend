@@ -22,10 +22,10 @@ export const Container = styled.div`
   }
   .loginContent {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     position: relative;
     max-width: 100%;
-    min-height: 250px;
+    min-height: 25rem;
     // color: #fff;
     box-sizing: border-box;
     .ant-form-item {
@@ -53,30 +53,30 @@ export const Container = styled.div`
     .login-form {
       background-color: white;
       /* height: 100%; */
-      padding-bottom: 100px;
     }
     .title {
       font-weight: 600;
-      font-size: 28px;
-      line-height: 40px;
+      font-size: 2.8rem;
+      line-height: 4rem;
       color: #1e262e;
-      margin-bottom: 30px;
+      margin-bottom: 4rem;
     }
     .form-content {
       width: 62%;
       margin-left: 15%;
-      margin-top: 100px !important;
+      margin-top: 15%;
+      margin-bottom: 15%;
     }
   }
   .selectContent {
-    width: 400px;
+    width: 40rem;
     max-width: 100%;
-    min-height: 250px;
+    min-height: 25rem;
     background-color: #fff;
-    padding: 40px;
+    padding: 4rem;
     // color: #fff;
     box-sizing: border-box;
-    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.35);
+    box-shadow: 0px 0.8rem 1rem rgba(0, 0, 0, 0.35);
     border-radius: 8px;
     .ant-form-item-label > label {
       color: #979797;
@@ -87,20 +87,19 @@ export const Container = styled.div`
     }
     .title {
       font-weight: 500;
-      font-size: 24px;
-      line-height: 28px;
-      // color: #fff;
+      font-size: 2.4rem;
+      line-height: 2.8rem;
       text-transform: uppercase;
       text-align: center;
     }
     .ant-btn-primary {
       width: 100%;
     }
-    margin: 30px;
+    margin: 3rem;
   }
   .ant-btn-primary {
     color: #fff;
-    height: 56px;
+    height: 5.6rem;
     background-color: ${({ theme }) => theme.primary_600};
     border-color: ${({ theme }) => theme.primary_600};
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
@@ -111,36 +110,43 @@ export const Container = styled.div`
       border-color: ${({ theme }) => theme.primary_700};
     }
     font-weight: 600;
-    margin-top: 36px;
-    margin-bottom: 16px;
+    margin-top: 3.6rem;
+    margin-bottom: 1.6rem;
   }
   .ant-btn-primary[disabled] {
     background-color: ${({ theme }) => theme.neutral_200};
     border-color: ${({ theme }) => theme.neutral_200};
     color: ${({ theme }) => theme.neutral_500};
   }
-  .ant-input {
-    height: 56px;
-  }
   .ant-form-item-label > label {
-    font-size: 14px;
+    font-size: 1.4rem;
+    line-height: 2rem;
     font-weight: 600;
     color: #404e5c !important;
   }
   .float-right {
-    font-size: 14px;
+    font-size: 1.4rem;
+    line-height: 2rem;
     text-decoration: underline;
+    font-weight: 400;
+    color: ${({ theme }) => theme.secondary_600};
   }
   .ant-alert {
-    margin-bottom: 64px;
+    margin-bottom: 6.4rem;
   }
 
   a {
-    font-size: 14px;
+    font-size: 1.4rem;
+    line-height: 2rem;
     color: ${({ theme }) => theme.secondary_600};
     &:hover {
       color: ${({ theme }) => theme.secondary_500};
     }
+  }
+
+  a.signup {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
   }
 
   .ant-checkbox-checked .ant-checkbox-inner {
@@ -157,42 +163,51 @@ export const Container = styled.div`
     border-color: #02a7f0;
   }
   .form-button {
-    margin-bottom: 36px;
+    margin-bottom: 3.6rem;
   }
   .ant-checkbox-wrapper {
-    margin-bottom: 24px;
-    margin-top: 10px;
+    margin-bottom: 2.4rem;
+    margin-top: 1rem;
     span {
-      font-size: 14px;
-      line-height: 20px;
+      font-size: 1.4rem;
+      line-height: 2rem;
       color: ${({ theme }) => theme.neutral_900};
+    }
+  }
+  @media screen and (max-width: 1023px) {
+    .loginContent {
+      .form-content {
+        width: 80%;
+        margin-left: 10%;
+      }
     }
   }
 `;
 export const FormItem = styled.div`
-  margin-bottom: 24px;
+  margin-bottom: 2.4rem;
   .formitem-label {
-    margin-bottom: 12px;
+    margin-bottom: 1.2rem;
     label {
-      font-size: 14px;
-      line-height: 20px;
-      margin: 12px 0px;
+      font-size: 1.4rem;
+      line-height: 2rem;
+      margin: 1.2rem 0px;
       color: ${({ theme }) => theme.neutral_700};
       .anticon svg {
-        margin-left: 10px;
-        margin-top: -6px;
+        margin-left: 1rem;
+        margin-top: -0.6rem;
       }
     }
   }
   .formitem-input {
     border-radius: 4px;
+    height: 5.6rem;
   }
   .error {
     border-color: ${({ theme }) => theme.primary_600} !important;
   }
   .validation {
     margin-bottom: 0;
-    margin-top: 6px;
+    margin-top: 0.6rem;
     text-align: end;
     font-size: 1.4rem;
     line-height: 2rem;
@@ -200,8 +215,8 @@ export const FormItem = styled.div`
   }
   .PhoneInput {
     input {
-      height: 56px;
-      padding: 10px;
+      height: 5.6rem;
+      padding: 1rem;
       border-radius: 4px;
       border: 1px solid ${({ theme }) => theme.neutral_500};
       &:hover {
@@ -215,5 +230,11 @@ export const FormItem = styled.div`
   }
 `;
 export const GGReCaptcha = styled.div`
-  margin-top: 24px;
+  margin-top: 2.4rem;
+  .rc-anchor {
+    .recaptcha-checkbox-border {
+      width: 10px !important;
+      height: 2.4rem !important;
+    }
+  }
 `;

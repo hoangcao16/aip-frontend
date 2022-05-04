@@ -10,8 +10,8 @@ export const Container = styled.div`
     background-color: ${({ theme }) => theme.neutral_100} !important;
   }
   .custom-tabs {
-    margin-top: 80px;
-    margin-bottom: 45px;
+    margin-top: 8rem;
+    margin-bottom: 4.5rem;
   }
 `;
 
