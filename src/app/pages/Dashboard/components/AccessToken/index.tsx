@@ -104,16 +104,6 @@ const AccessToken = () => {
             </div>
           </div>
         </div>
-        {/* <div className="token__access">
-          <h3>3. Access token</h3>
-          <div className="access-data">
-            <pre>{JSON.stringify(data, null, 2)}</pre>
-            <div className="action">
-              <Button className="eye" icon={<EyeOutlined />} />
-              <Button className="copy" icon={<CopyOutlined />} />
-            </div>
-          </div>
-        </div> */}
       </div>
     </Styled.AccessToken>
   );

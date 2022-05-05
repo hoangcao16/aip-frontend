@@ -80,25 +80,6 @@ const Styled = {
           opacity: 0.5;
         }
       }
-      &__access {
-        .access-data {
-          border: 1px solid ${({ theme }) => theme.neutral_400};
-          border-radius: 4px;
-          background-color: ${({ theme }) => theme.neutral_100};
-          padding: 1.6rem;
-          position: relative;
-          .eye {
-            border-radius: 0;
-            border-right: 0;
-            border-top: 0;
-          }
-          .copy {
-            border-radius: 0 4px 0px 0;
-            border-right: 0;
-            border-top: 0;
-          }
-        }
-      }
 
       @media screen and (max-width: 1279px) {
         &__input {
