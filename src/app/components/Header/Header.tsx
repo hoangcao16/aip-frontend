@@ -93,7 +93,7 @@ function Header() {
             selectedKeys={[current]}
           >
             <Menu.Item key="feature">
-              <Link to={'/'}>Feature</Link>
+              <Link to={'/'}>Features</Link>
             </Menu.Item>
             <Menu.Item key="about">
               <Link to={'/'}>About us</Link>
