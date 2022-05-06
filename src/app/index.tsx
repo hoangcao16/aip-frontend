@@ -48,7 +48,7 @@ export function App() {
     <BrowserRouter>
       <ThemeProvider theme={themeMode}>
         <Helmet htmlAttributes={{ lang: i18n.language }}>
-          <meta name="description" content="A React Boilerplate application" />
+          <meta name="description" content="Synodus eKYC" />
         </Helmet>
         <Routes>
           <Route path="/" element={<HomePage />} />
