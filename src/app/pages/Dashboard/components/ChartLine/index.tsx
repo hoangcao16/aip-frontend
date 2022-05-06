@@ -49,7 +49,7 @@ function ChartLine() {
   };
   return (
     <div className="chart_line">
-      <Line {...config} />
+      <Line className="line" {...config} />
     </div>
   );
 }

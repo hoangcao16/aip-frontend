@@ -14,7 +14,7 @@ const { TabPane } = Tabs;
 const { Option } = Select;
 
 const operations = (
-  <Select defaultValue="lucy" size="large" style={{ width: 120 }}>
+  <Select defaultValue="lucy" size="large" style={{ width: '12rem' }}>
     <Option value="jack">Jack</Option>
     <Option value="lucy">1 Hour</Option>
     <Option value="Yiminghe">yiminghe</Option>
@@ -27,8 +27,8 @@ const DashboardPage = () => {
       <div className="data">
         <h2>Dasboard</h2>
 
-        <Row gutter={24}>
-          <Col className="gutter-row" span={6}>
+        <Row gutter={{ xs: 8, sm: 8, xl: 24 }}>
+          <Col className="gutter-row" xs={12} lg={6}>
             <Card style={{ width: '100%' }}>
               <h3>123</h3>
               <div className="card-info">
@@ -42,7 +42,7 @@ const DashboardPage = () => {
               </div>
             </Card>
           </Col>
-          <Col className="gutter-row" span={6}>
+          <Col className="gutter-row" xs={12} lg={6}>
             <Card style={{ width: '100%' }}>
               <h3>99</h3>
               <div className="card-info">
@@ -56,7 +56,7 @@ const DashboardPage = () => {
               </div>
             </Card>
           </Col>
-          <Col className="gutter-row" span={6}>
+          <Col className="gutter-row" xs={12} lg={6}>
             <Card style={{ width: '100%' }}>
               <h3>13</h3>
               <div className="card-info">
@@ -67,7 +67,7 @@ const DashboardPage = () => {
               </div>
             </Card>
           </Col>
-          <Col className="gutter-row" span={6}>
+          <Col className="gutter-row" xs={12} lg={6}>
             <Card style={{ width: '100%' }}>
               <h3>08</h3>
               <div className="card-info">

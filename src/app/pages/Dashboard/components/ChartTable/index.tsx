@@ -6,7 +6,7 @@ const columns = [
   {
     title: 'API Name',
     dataIndex: 'apiName',
-    width: 300,
+    width: '30rem',
   },
   {
     title: 'URI',
@@ -15,25 +15,25 @@ const columns = [
   {
     title: 'Total',
     dataIndex: 'total',
-    width: 165,
+    width: '16.5rem',
     className: 'total',
   },
   {
     title: 'Success API',
     dataIndex: 'successApi',
-    width: 165,
+    width: '16.5rem',
     className: 'successApi',
   },
   {
     title: 'Client Errors',
     dataIndex: 'clientErrors',
-    width: 166,
+    width: '16.6rem',
     className: 'clientErrors',
   },
   {
     title: 'System Errors',
     dataIndex: 'systemErrors',
-    width: 165,
+    width: '16.5rem',
     className: 'systemErrors',
   },
 ];
@@ -84,6 +84,7 @@ const ChartTable = () => {
       columns={columns}
       dataSource={data}
       bordered
+      scroll={{ x: 300 }}
     />
   );
 };

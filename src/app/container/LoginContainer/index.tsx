@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useForm, Controller } from 'react-hook-form';
 import { selectAuthlogin } from 'app/container/LoginContainer/slice/selectors';
 import { useAuthloginSlice } from 'app/container/LoginContainer/slice';
+// import { P } from '@antv/g2plot';
 const LoginContainer = () => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
@@ -35,19 +36,19 @@ const LoginContainer = () => {
         </div>
         <div className="loginContent">
           <Row style={{ height: '100%' }}>
-            <Col span={12} className="login-logo">
-              <div>
+            <Col xs={0} md={12} className="login-logo">
+              <div className="logo-img">
                 <img src={LOGO_LOGIN} alt="logo" />
               </div>
             </Col>
-            <Col span={12} className="login-form">
+            <Col xs={24} md={12} className="login-form">
               <div className="form-content">
                 <h3 className="title">Login</h3>
                 <form onSubmit={handleSubmit(onSubmitLogin)}>
                   <FormItem>
                     <Controller
                       rules={{
-                        required: true,
+                        required: 'Enter username',
                       }}
                       name="username"
                       control={control}
@@ -68,6 +69,11 @@ const LoginContainer = () => {
                             id="username"
                             placeholder="User name"
                           />
+                          {errors?.username && (
+                            <p className="validation">
+                              {errors?.username?.message}
+                            </p>
+                          )}
                         </>
                       )}
                     />
@@ -75,7 +81,7 @@ const LoginContainer = () => {
                   <FormItem>
                     <Controller
                       rules={{
-                        required: true,
+                        required: 'Enter password',
                       }}
                       name="password"
                       control={control}
@@ -102,6 +108,11 @@ const LoginContainer = () => {
                             id="password"
                             placeholder="Your password"
                           />
+                          {errors?.password && (
+                            <p className="validation">
+                              {errors?.password?.message}
+                            </p>
+                          )}
                         </>
                       )}
                     />
@@ -113,11 +124,14 @@ const LoginContainer = () => {
                     disabled={isLoading}
                     className="form-button"
                   >
-                    {isLoading ? 'Vui lòng đợi...' : 'Login now'}
+                    {isLoading ? 'Please wait...' : 'Login now'}
                   </Button>
 
                   <p>
-                    Don’t have an account? <Link to="/register">Signup</Link>
+                    Don’t have an account?{' '}
+                    <Link to="/register" className="signup">
+                      Signup
+                    </Link>
                   </p>
                 </form>
 

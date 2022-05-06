@@ -6,7 +6,7 @@ import { selectAuthlogin } from 'app/container/LoginContainer/slice/selectors';
 export function LoginPage() {
   const { isLoading } = useSelector(selectAuthlogin);
   useEffect(() => {
-    document.title = 'Đăng Nhập';
+    document.title = 'Login';
   }, []);
 
   return (

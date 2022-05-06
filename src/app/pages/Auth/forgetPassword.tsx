@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 export function ForgetPasswordPage(props) {
   const { isLoading } = useSelector(selectForgetpassword);
   useEffect(() => {
-    document.title = 'Quên mật khẩu';
+    document.title = 'Forgot password';
   }, []);
 
   return (

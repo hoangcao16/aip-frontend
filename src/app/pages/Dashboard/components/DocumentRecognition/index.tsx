@@ -14,7 +14,6 @@ const DocumentRecognition = () => {
   const [type, setType] = useState('ID Card');
   const [frontImageUrl, setfrontImageUrl] = useState(null);
   const [backImageUrl, setBackImageUrl] = useState(null);
-  console.log(useSelector(selectRecognition));
 
   const isDisabled = () => {
     if (type === 'ID Card') {
@@ -62,6 +61,7 @@ const DocumentRecognition = () => {
   };
   const handleSelectTabs = e => {
     setSelectTabs(!selectTabs);
+    setIsExecute(false);
     setType(e.target.value);
     setfrontImageUrl(null);
     setBackImageUrl(null);

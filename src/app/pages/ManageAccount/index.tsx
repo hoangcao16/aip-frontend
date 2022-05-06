@@ -6,6 +6,8 @@ import { Modal } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { authService } from 'services/authService';
 import styled from 'styled-components';
+import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Container = styled.div`
   .ant-tabs-nav {
@@ -14,6 +16,16 @@ const Container = styled.div`
   }
   .ant-tabs-tab-active {
     background-color: ${({ theme }) => theme.neutral_white} !important;
+  }
+  @media screen and (max-width: 767px) {
+    .ant-tabs-tab-btn {
+      padding-left: 0.3rem !important;
+    }
+  }
+  @media screen and (max-width: 575px) {
+    .ant-tabs-tab-btn {
+      padding-left: 0.5rem !important;
+    }
   }
 `;
 
@@ -31,8 +43,9 @@ const tabManage = [
   },
 ];
 
-const ManageAccount = () => {
+export const ManageAccount = () => {
   const navigate = useNavigate();
+  const [keyTabs, setKeyTabs] = useState('Personal information');
   function confirm() {
     Modal.confirm({
       title: 'Do you want to log out?',
@@ -47,11 +60,23 @@ const ManageAccount = () => {
   }
 
   return (
-    <Container>
-      <HeaderDashboard />
-      <CustomTabs dataTabs={tabManage} onLogout={confirm} />
-    </Container>
+    <>
+      <Helmet>
+        <title>Manage account</title>
+        <meta
+          name="description"
+          content="A Synodus application Manage account"
+        />
+      </Helmet>
+      <Container>
+        <HeaderDashboard />
+        <CustomTabs
+          dataTabs={tabManage}
+          onLogout={confirm}
+          keyTabs={keyTabs}
+          onTabClick={(key: string) => setKeyTabs(key)}
+        />
+      </Container>
+    </>
   );
 };
-
-export default ManageAccount;

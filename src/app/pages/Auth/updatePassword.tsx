@@ -7,7 +7,7 @@ import { selectUpdatepassword } from 'app/container/UpdatePassword/slice/selecto
 export function UpdatePasswordPage() {
   const { isLoading } = useSelector(selectUpdatepassword);
   useEffect(() => {
-    document.title = 'Thay đổi mật khẩu';
+    document.title = 'Reset password';
   }, []);
   return (
     <>

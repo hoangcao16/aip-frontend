@@ -54,12 +54,15 @@ const AccessToken = () => {
             <div className="action">
               <Button
                 className="eye"
-                icon={<EyeOutlined />}
+                icon={
+                  <EyeOutlined
+                    className={typeId === 'text' ? '' : 'password'}
+                  />
+                }
                 onClick={e => {
                   clientIdRef.current?.type === 'text'
                     ? setTypeId('password')
                     : setTypeId('text');
-                  console.log(e.target);
                 }}
               />
               <Button
@@ -87,7 +90,11 @@ const AccessToken = () => {
                     ? setTypeKey('password')
                     : setTypeKey('text');
                 }}
-                icon={<EyeOutlined />}
+                icon={
+                  <EyeOutlined
+                    className={typeKey === 'text' ? '' : 'password'}
+                  />
+                }
               />
               <Button
                 className="copy"
@@ -97,16 +104,6 @@ const AccessToken = () => {
             </div>
           </div>
         </div>
-        {/* <div className="token__access">
-          <h3>3. Access token</h3>
-          <div className="access-data">
-            <pre>{JSON.stringify(data, null, 2)}</pre>
-            <div className="action">
-              <Button className="eye" icon={<EyeOutlined />} />
-              <Button className="copy" icon={<CopyOutlined />} />
-            </div>
-          </div>
-        </div> */}
       </div>
     </Styled.AccessToken>
   );

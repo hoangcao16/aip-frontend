@@ -27,12 +27,12 @@ const ForgetPasswordContainer = () => {
       </div>
       <div className="loginContent">
         <Row style={{ height: '100%' }}>
-          <Col span={12} className="login-logo">
-            <div>
+          <Col xs={0} md={12} className="login-logo">
+            <div className="logo-img">
               <img src={LOGO_LOGIN} alt="logo" />
             </div>
           </Col>
-          <Col span={12} className="login-form">
+          <Col xs={24} md={12} className="login-form">
             <div className="form-content">
               <h3 className="title" style={{ marginBottom: '16px' }}>
                 Reset your password
@@ -46,9 +46,12 @@ const ForgetPasswordContainer = () => {
                 <FormItem>
                   <Controller
                     rules={{
-                      required: {
-                        value: true,
-                        message: 'Nhập địa chỉ E-mail!',
+                      required: 'Enter your email address',
+                      pattern: {
+                        value:
+                          /^[a-zA-Z0-9]+([\._-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+([\_-]?[a-zA-Z0-9]+)*(\.[a-zA-Z]{2,4}){1,2}$/,
+                        message:
+                          'Your email is not valid, please check it again!',
                       },
                     }}
                     name="email"
@@ -70,6 +73,9 @@ const ForgetPasswordContainer = () => {
                           id="email"
                           placeholder="Address your email"
                         />
+                        {errors?.email && (
+                          <p className="validation">{errors?.email?.message}</p>
+                        )}
                       </>
                     )}
                   />
@@ -82,7 +88,7 @@ const ForgetPasswordContainer = () => {
                     htmlType="submit"
                     disabled={isLoading}
                   >
-                    {isLoading ? 'Vui lòng đợi...' : 'Send request'}
+                    {isLoading ? 'Please wait...' : 'Send request'}
                   </Button>
                 </Form.Item>
                 <span>

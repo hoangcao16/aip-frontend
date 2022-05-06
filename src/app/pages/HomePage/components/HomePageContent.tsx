@@ -8,8 +8,11 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import { CheckOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
 import Styled from './styled';
+import { useNavigate } from 'react-router-dom';
 
 const HomePageContent = (props: any) => {
+  const token = localStorage.getItem('access_token');
+  const navigate = useNavigate();
   const listOption = [
     'Verify document with near-perfect accuracy',
     'Recognize customers based on their selfies and ID photos',
@@ -39,7 +42,7 @@ const HomePageContent = (props: any) => {
     <Styled.HomePage>
       <div className="homepage">
         <Row justify="center">
-          <Col span={19}>
+          <Col xs={22} lg={21} xl={19}>
             <div className="info">
               <div className="line"></div>
               <h3 className="info__title">
@@ -47,7 +50,14 @@ const HomePageContent = (props: any) => {
               </h3>
               <div className="info__desc">
                 <p>Fast, secure, easy, instantaneous customer onboarding.</p>
-                <Button size="large" className="info__btn">
+                <Button
+                  size="large"
+                  className="info__btn"
+                  onClick={() => {
+                    token ? navigate('/dashboard') : navigate('/login');
+                    localStorage.setItem('tab_dashboard', 'Try demo');
+                  }}
+                >
                   Try now
                 </Button>
               </div>
@@ -56,7 +66,7 @@ const HomePageContent = (props: any) => {
         </Row>
         {/* accuracy */}
         <Row justify="center">
-          <Col span={19}>
+          <Col xs={22} lg={21} xl={19}>
             <div className="accuracy">
               <div>
                 <img src={IMAGE_ACCURACY} alt="img" />
@@ -71,15 +81,15 @@ const HomePageContent = (props: any) => {
         <div className="line-full"></div>
         {/* option */}
         <Row justify="center">
-          <Col span={19}>
+          <Col xs={22} lg={21} xl={19}>
             <div className="option">
               <div className="line"></div>
               <h3 className="option__title">Why we are the best option?</h3>
-              <Row className="option__content">
-                <Col span={12}>
+              <Row className="option__content" justify="space-between">
+                <Col xs={12} md={10}>
                   <img src={IMAGE_OPTION} alt="img" />
                 </Col>
-                <Col span={12}>
+                <Col xs={24} md={12}>
                   <div className="option__desc">
                     <div className="option__heading">
                       <span>Why Choose Us</span>
@@ -111,19 +121,26 @@ const HomePageContent = (props: any) => {
         </Row>
         {/* sample */}
         <Row justify="center">
-          <Col span={19}>
+          <Col xs={22} lg={21} xl={19}>
             <div className="sample">
               <div className="line"></div>
               <div className="sample__header">
                 <h3 className="sample__title">
                   Let’s get started with our sample!
                 </h3>
-                <Button size="large" className="sample__btn">
+                <Button
+                  size="large"
+                  className="sample__btn"
+                  onClick={() => {
+                    token ? navigate('/dashboard') : navigate('/login');
+                    localStorage.setItem('tab_dashboard', 'Try demo');
+                  }}
+                >
                   Try now
                 </Button>
               </div>
               <Row className="sample__content">
-                <Col span={12}>
+                <Col xs={24} md={12}>
                   <div className="sample__carousel">
                     <Carousel
                       infiniteLoop
@@ -161,7 +178,7 @@ const HomePageContent = (props: any) => {
                     </Carousel>
                   </div>
                 </Col>
-                <Col span={12}>
+                <Col xs={24} md={12}>
                   <div className="sample__code">
                     <p className="result-title">Result code</p>
                     <pre>{JSON.stringify(data, null, 2)}</pre>

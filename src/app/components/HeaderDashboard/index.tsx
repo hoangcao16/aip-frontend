@@ -12,12 +12,12 @@ function HeaderDashboard() {
   return (
     <Styled.HeaderDashboard>
       <Row justify="center" className="header-dasboard">
-        <Col className="logo" span={6}>
+        <Col className="logo" xs={6}>
           <Link to={'/'}>
             <img src={LOGO} alt="logo" />
           </Link>
         </Col>
-        <Col span={16}>
+        <Col xs={14} lg={15} xl={16}>
           <Menu mode="horizontal">
             <Menu.Item key="feature">
               <Link to={'/'}>Homepage</Link>
@@ -27,7 +27,7 @@ function HeaderDashboard() {
             </Menu.Item>
           </Menu>
         </Col>
-        <Col span={2}>
+        <Col xs={4} lg={3} xl={2}>
           <div className="user">
             <Link to={'/manage'}>
               <span>{name?.user?.full_name}</span> <UserOutlined />

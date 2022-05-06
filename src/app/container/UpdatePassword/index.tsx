@@ -1,5 +1,5 @@
 import { Container, FormItem } from './style';
-import { Input, Button, Row, Col } from 'antd';
+import { Input, Button, Row, Col, Tooltip } from 'antd';
 import BG_VIDEO from 'app/assets/images/imagesGuide/bg_video.mp4';
 import LOGO_LOGIN from 'app/assets/images/imagesGuide/logo-login.png';
 import { useSelector, useDispatch } from 'react-redux';
@@ -7,6 +7,17 @@ import { useForm, Controller } from 'react-hook-form';
 import { selectUpdatepassword } from 'app/container/UpdatePassword/slice/selectors';
 import { useParams } from 'react-router-dom';
 import { useUpdatepasswordSlice } from './slice';
+import { InfoCircleFilled } from '@ant-design/icons';
+
+const text = (
+  <ul>
+    <li>Minimum 8 characters, Maximum 20 characters</li>
+    <li>Have at least 1 upper case character</li>
+    <li>Have at least 1 lower case character</li>
+    <li>Have at least 1 special character</li>
+  </ul>
+);
+
 const UpdatePasswordContainer = () => {
   const dispatch = useDispatch();
   const { actions } = useUpdatepasswordSlice();
@@ -14,6 +25,7 @@ const UpdatePasswordContainer = () => {
   const { isLoading } = useSelector(selectUpdatepassword);
   const {
     control,
+    watch,
     handleSubmit,
     formState: { errors },
   } = useForm();
@@ -35,14 +47,14 @@ const UpdatePasswordContainer = () => {
       </div>
       <div className="loginContent">
         <Row style={{ height: '100%' }}>
-          <Col span={12} className="login-logo">
-            <div>
+          <Col xs={0} md={12} className="login-logo">
+            <div className="logo-img">
               <img src={LOGO_LOGIN} alt="logo" />
             </div>
           </Col>
-          <Col span={12} className="login-form">
+          <Col xs={24} md={12} className="login-form">
             <div className="form-content">
-              <h3 className="title">Xác thực</h3>
+              <h3 className="title">Reset password</h3>
               {/* Check FORM */}
               <form onSubmit={handleSubmit(onSubmit)}>
                 <FormItem>
@@ -50,31 +62,40 @@ const UpdatePasswordContainer = () => {
                     rules={{
                       required: {
                         value: true,
-                        message: 'Nhập mật khẩu',
+                        message: 'Enter new password',
                       },
-                      minLength: {
-                        value: 8,
-                        message: 'Mật khẩu phải có ít nhất 8 ký tự',
+                      pattern: {
+                        value:
+                          /^(?=.*[0-9])(?=.*[!@#$%^&*<>?/_-])[a-zA-Z0-9!@#$%^&*<>?/_-]{8,20}$/,
+                        message: 'Password is invalid',
                       },
                     }}
-                    name="password"
+                    name="new_password"
                     control={control}
                     render={({ field }) => (
                       <>
                         <div className="formitem-label">
-                          <label htmlFor="password">Password</label>
+                          <label htmlFor="new_password">New password</label>
                         </div>
                         <Input.Password
                           {...field}
                           className={
-                            errors?.password
+                            errors?.new_password
                               ? 'formitem-input error'
                               : 'formitem-input'
                           }
                           type="password"
-                          id="password"
-                          placeholder="Your password"
+                          id="new_password"
+                          placeholder="New password"
                         />
+                        {errors?.new_password && (
+                          <p className="validation">
+                            {errors?.new_password?.message}
+                            <Tooltip placement="top" title={text}>
+                              <InfoCircleFilled />
+                            </Tooltip>
+                          </p>
+                        )}
                       </>
                     )}
                   />
@@ -84,28 +105,40 @@ const UpdatePasswordContainer = () => {
                     rules={{
                       required: {
                         value: true,
-                        message: 'Nhập mật khẩu',
+                        message: 'Re-enter new password',
                       },
-                      minLength: {
-                        value: 8,
-                        message: 'Mật khẩu phải có ít nhất 8 ký tự',
+                      validate: value => {
+                        if (watch('new_password') !== value) {
+                          return 'Your passwords do no match';
+                        }
                       },
                     }}
-                    name="confirm"
+                    name="re_enter"
                     control={control}
                     render={({ field }) => (
                       <>
                         <div className="formitem-label">
-                          <label htmlFor="confirm">Confirm Password</label>
+                          <label htmlFor="re_enter">
+                            Re-enter new password
+                          </label>
                         </div>
                         <Input.Password
                           {...field}
-                          className="formitem-input"
+                          className={
+                            errors?.re_enter
+                              ? 'formitem-input error'
+                              : 'formitem-input'
+                          }
                           type="password"
-                          id="confirm"
+                          id="re_enter"
                           placeholder="Re-enter password"
                           onBlur={handleConfirmBlur}
                         />
+                        {errors?.re_enter && (
+                          <p className="validation">
+                            {errors?.re_enter?.message}
+                          </p>
+                        )}
                       </>
                     )}
                   />
@@ -117,7 +150,7 @@ const UpdatePasswordContainer = () => {
                   htmlType="submit"
                   disabled={isLoading}
                 >
-                  {isLoading ? 'Vui lòng đợi...' : 'Thay đổi'}
+                  {isLoading ? 'Please wait...' : 'Submit'}
                 </Button>
               </form>
             </div>

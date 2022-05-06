@@ -27,12 +27,12 @@ import { useTranslation } from 'react-i18next';
 import { useThemeContext } from 'app/components/common/themeContext';
 import { darkTheme, lightTheme } from 'theme/theme';
 import 'antd/dist/antd.min.css';
-import Documentation from './pages/Documentation';
-import Dashboard from './pages/Dashboard';
 import PrivateRoute from 'app/components/common/privateRoute';
 import PublicRoute from 'app/components/common/publicRoute';
-import ManageAccount from './pages/ManageAccount';
 import 'react-phone-number-input/style.css';
+import { Documentation } from './pages/Documentation/Loadable';
+import { Dashboard } from './pages/Dashboard/Loadable';
+import { ManageAccount } from './pages/ManageAccount/Loadable';
 
 export function App() {
   const { theme } = useThemeContext();
@@ -59,7 +59,6 @@ export function App() {
               <PrivateRoute>
                 <Dashboard />
               </PrivateRoute>
-              // <Dashboard />
             }
           />
           <Route

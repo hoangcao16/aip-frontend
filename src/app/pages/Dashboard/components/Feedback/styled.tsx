@@ -3,30 +3,31 @@ import styled from 'styled-components';
 const Styled = {
   Feedback: styled.div`
     .feedback {
+      margin-bottom: 3rem;
       h2 {
-        font-size: 28px;
-        line-height: 40px;
+        font-size: 2.8rem;
+        line-height: 4rem;
         color: ${({ theme }) => theme.neutral_900};
         font-weight: 600;
         margin: 0;
-        margin-top: 34px;
+        margin-top: 3.4rem;
       }
       & > p {
         color: ${({ theme }) => theme.neutral_600};
-        font-size: 14px;
-        line-height: 20px;
+        font-size: 1.4rem;
+        line-height: 2rem;
       }
       &__send {
-        margin-top: 44px;
+        margin-top: 4.4rem;
         .form-radio {
-          margin-bottom: 36px;
+          margin-bottom: 3.6rem;
         }
         .form-input-title {
-          margin-bottom: 12px;
+          margin-bottom: 1.2rem;
         }
         .form-input-message {
-          margin-bottom: 36px;
-          padding: 0 16px 28px 0;
+          margin-bottom: 3.6rem;
+          padding: 0 1.6rem 2.8rem 0;
           border: 1px solid #cad4df;
           border-radius: 4px;
           &:focus-within,
@@ -36,16 +37,16 @@ const Styled = {
           .ant-input-textarea-show-count:after {
             color: ${({ theme }) => theme.neutral_600};
             font-weight: 400;
-            font-size: 14px;
-            line-height: 20px;
+            font-size: 1.4rem;
+            line-height: 2rem;
           }
         }
         h3 {
           color: ${({ theme }) => theme.neutral_900};
-          font-size: 14px;
-          line-height: 20px;
+          font-size: 1.4rem;
+          line-height: 2rem;
           font-weight: 600;
-          margin: 0 0 12px 0;
+          margin: 0 0 1.2rem 0;
         }
         .ant-radio-wrapper {
           span {
@@ -58,27 +59,35 @@ const Styled = {
           }
         }
         .input-title {
-          height: 56px;
-          font-size: 16px;
+          height: 5.6rem;
+          font-size: 1.6rem;
           border-radius: 4px;
-          /* margin-top: 10px; */
+          &:hover {
+            border-color: ${({ theme }) => theme.secondary_600};
+          }
+          &:focus {
+            box-shadow: none;
+          }
         }
         .input-message {
-          font-size: 16px;
+          font-size: 1.6rem;
+          /* &:hover {
+            border-color: ${({ theme }) => theme.secondary_600};
+          } */
+          /* &:focus {
+            box-shadow: none;
+          } */
           textarea {
             border: none;
-            &:focus {
-              box-shadow: none;
-            }
           }
         }
         .submit {
           background-color: ${({ theme }) => theme.secondary_600};
-          height: 56px;
-          width: 200px;
+          height: 5.6rem;
+          width: 20rem;
           span {
-            font-size: 18px;
-            line-height: 28px;
+            font-size: 1.8rem;
+            line-height: 2.8rem;
             font-weight: 700;
           }
           &:hover {

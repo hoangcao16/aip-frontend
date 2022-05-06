@@ -3,8 +3,7 @@ import styled from 'styled-components';
 const Styled = {
   HeaderDashboard: styled.div`
     .header-dasboard {
-      // width: 1440px;
-      height: 80px !important;
+      height: 8rem !important;
       margin: 0 auto;
       display: flex;
       margin-left: auto;
@@ -16,7 +15,10 @@ const Styled = {
       .logo {
         display: flex;
         align-self: center;
-        padding-left: 25px;
+        padding-left: 2.5rem;
+        img {
+          width: 100%;
+        }
       }
       .ant-menu-horizontal {
         display: flex;
@@ -28,9 +30,8 @@ const Styled = {
           vertical-align: baseline;
           border-bottom: 0;
           a {
-            font-size: 16px;
+            font-size: 1.6rem;
             color: ${({ theme }) => theme.neutral_600};
-            width: 100px;
             font-weight: 600;
           }
           &:after {
@@ -78,15 +79,15 @@ const Styled = {
         a {
           color: ${({ theme }) => theme.neutral_900};
           font-weight: 600;
-          font-size: 16px;
-          line-height: 24px;
+          font-size: 1.6rem;
+          line-height: 2.4rem;
           border-left: 1px solid ${({ theme }) => theme.neutral_400};
-          padding-left: 20px;
+          padding-left: 2rem;
         }
         .anticon svg {
-          font-size: 24px;
-          margin-top: -10px;
-          margin-left: 5px;
+          font-size: 2.4rem;
+          margin-top: -1rem;
+          margin-left: 0.5rem;
         }
       }
     }
