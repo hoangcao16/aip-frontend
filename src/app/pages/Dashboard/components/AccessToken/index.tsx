@@ -13,21 +13,8 @@ const AccessToken = () => {
   const { clientId, clientSecret } = useSelector(selectTokenaccess);
   const clientIdRef = useRef<HTMLInputElement>(null);
   const clientSecretRef = useRef<HTMLInputElement>(null);
-  const [typeId, setTypeId] = useState('text');
-  const [typeKey, setTypeKey] = useState('text');
-
-  // const data = {
-  //   iss: 'https://my-domain.auth0.com/',
-  //   sub: 'auth0|123456',
-  //   aud: [
-  //     'https://example.com/health-api',
-  //     'https://my-domain.auth0.com/userinfo',
-  //   ],
-  //   azp: 'my_client_id',
-  //   exp: 1311281970,
-  //   iat: 1311280970,
-  //   scope: 'openid profile read:patients read:admin',
-  // };
+  const [typeId, setTypeId] = useState('password');
+  const [typeKey, setTypeKey] = useState('password');
 
   const handleClickCopy = (value: any) => {
     navigator.clipboard.writeText(value);
