@@ -1,4 +1,4 @@
-import { Button } from 'antd';
+import { Button, Card, Spin } from 'antd';
 import React, { useState } from 'react';
 import CustomUpload from 'app/components/CustomUpload';
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,8 +6,9 @@ import { selectFacematching } from './slice/selectors';
 import { useFacematchingSlice } from './slice';
 const FaceMatching = () => {
   const dispatch = useDispatch();
+  const [isExecute, setIsExecute] = useState(false);
   const { actions } = useFacematchingSlice();
-  const { isLoading } = useSelector(selectFacematching);
+  const { isLoading, data } = useSelector(selectFacematching);
   const [faceImg1, setFaceImg1] = useState(null);
   const [faceImg2, setFaceImg2] = useState(null);
 
@@ -27,6 +28,7 @@ const FaceMatching = () => {
     setFaceImg2(url);
   };
   const handleExecute = () => {
+    setIsExecute(true);
     if (faceImg1 && faceImg2) {
       const fm = new FormData();
       fm.append('face_image_1', faceImg1);
@@ -51,6 +53,36 @@ const FaceMatching = () => {
             Execute
           </Button>
         </div>
+        {isExecute && (
+          <div
+            className="result"
+            style={{ width: '100%', marginBottom: '40px' }}
+          >
+            <Card
+              size="default"
+              title="Result"
+              extra={
+                <Button
+                  onClick={() => {
+                    setIsExecute(false);
+                    setFaceImg1(null);
+                    setFaceImg2(null);
+                  }}
+                >
+                  Try again
+                </Button>
+              }
+              style={{ width: '100%', marginBottom: '40px' }}
+            >
+              {/* <Spin size="large" /> */}
+              {isLoading ? (
+                <Spin size="large" />
+              ) : (
+                <pre>{JSON.stringify(data, null, 2)}</pre>
+              )}
+            </Card>
+          </div>
+        )}
       </div>
     </div>
   );
