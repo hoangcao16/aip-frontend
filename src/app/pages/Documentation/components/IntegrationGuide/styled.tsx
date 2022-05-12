@@ -18,11 +18,44 @@ const Styled = {
         line-height: 2.8rem;
         font-weight: 700;
         margin: 0;
+        margin-top: 5rem;
+        margin-bottom: 2rem;
         color: ${({ theme }) => theme.neutral_900};
       }
       p {
         color: ${({ theme }) => theme.neutral_900};
-        margin-bottom: 6rem;
+        margin-bottom: 1rem;
+      }
+      table,
+      td,
+      th {
+        border: 1px solid;
+      }
+
+      table {
+        width: 80%;
+        border-collapse: collapse;
+        margin-bottom: 1rem;
+      }
+      td {
+        padding: 1rem;
+      }
+
+      .table-header {
+        td {
+          width: 50%;
+        }
+      }
+      .table-body {
+        td {
+          width: 33.33%;
+        }
+      }
+
+      .data-json {
+        background-color: #f1efee;
+        padding: 1rem;
+        width: 80%;
       }
     }
 
