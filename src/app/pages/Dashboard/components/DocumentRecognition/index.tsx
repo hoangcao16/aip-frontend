@@ -65,6 +65,7 @@ const DocumentRecognition = () => {
     setType(e.target.value);
     setfrontImageUrl(null);
     setBackImageUrl(null);
+    dispatch(actions.reloadData);
   };
   return (
     <div className="document-recognition">
@@ -138,6 +139,7 @@ const DocumentRecognition = () => {
                     setIsExecute(false);
                     setfrontImageUrl(null);
                     setBackImageUrl(null);
+                    dispatch(actions.reloadData);
                   }}
                 >
                   Try again

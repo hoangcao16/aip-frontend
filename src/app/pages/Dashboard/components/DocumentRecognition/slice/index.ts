@@ -43,6 +43,9 @@ const slice = createSlice({
     recognitionDriversFail(state, action: PayloadAction<any>) {
       state.isLoading = false;
     },
+    reloadData(state, action: PayloadAction<any>) {
+      state.data = null;
+    },
   },
 });
 

@@ -67,6 +67,7 @@ const FaceMatching = () => {
                     setIsExecute(false);
                     setFaceImg1(null);
                     setFaceImg2(null);
+                    dispatch(actions.reloadData);
                   }}
                 >
                   Try again
